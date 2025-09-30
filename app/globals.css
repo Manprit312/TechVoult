@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* Light & Dark Mode Base Colors */
+:root {
+  --background: #f9fafb;   /* soft gray */
+  --foreground: #1a1a1a;   /* deep gray */
+  --primary: #f97316;      /* orange */
+  --secondary: #ec4899;    /* pink */
+  --accent: #3b82f6;       /* blue */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f9fafb;   /* light background */
+  --foreground: #958e8e;   /* dark text */
+  --primary: #f97316;      /* orange */
+  --secondary: #ec4899;    /* pink */
+  --accent: #3b82f6;
+  }
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 17s ease infinite;
+}
+/* Base Typography */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: font-mono, sans-serif;
+}
