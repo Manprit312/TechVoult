@@ -3,7 +3,7 @@ import { Phone, Mail, Calendar, MessageCircle } from "lucide-react";
 
 export default function FloatingCTA() {
   return (
-    <div className="fixed top-1/3 right-4 z-50">
+    <div className="fixed top-1/6 right-0 z-50">
       <div className="flex flex-col gap-4 p-3 rounded-2xl shadow-lg">
         {/* WhatsApp */}
         <div className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500 text-white shadow-md">
