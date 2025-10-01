@@ -58,7 +58,7 @@ export default function Header() {
         { name: "Solana Development", href: "solana-development" },
       ],
       Tokens: [
-        { name: "Crypto Token Development", href: "crypto-token" },
+        { name: "Crypto Token Development", href: "crypto-token-development" },
         { name: "NFT Token", href: "nft-development" },
         { name: "DeFi Token", href: "defi-development" },
       ],
@@ -66,6 +66,20 @@ export default function Header() {
         { name: "Crypto Wallet", href: "crypto-wallet" },
         { name: "NFT Wallet", href: "nft-wallet" },
         { name: "DeFi Wallet", href: "defi-wallet" },
+      ],
+        NFT: [
+        { name: "Crypto Development", href: "crypto-token-development" },
+        { name: "NFT Development", href: "nft-development" },
+        { name: "DeFi Development", href: "defi-development" },
+      ],
+        Exchange: [
+        { name: "White Label Crypto Exchange", href: "white-label-crypto-exchange-development" },
+        { name: "Centralized Exchange", href: "centralized-crypto-exchange-development" },
+        { name: "DeFi Exchange", href: "defi-exchange-development" },
+      { name: "Crypto Derivatives Exchange", href: "crypto-derivatives-exchange" },  
+      { name: "P2P Crypto Exchange", href: "p2p-crypto-exchage" },  
+
+      
       ],
     },
 
