@@ -1,7 +1,7 @@
 import { Users, ShieldCheck, Zap } from "lucide-react";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
-export default function WhyChoose() {
+const WhyChoose=()=> {
   return (
     <section className="py-20 bg-gray-50" id="why-choose">
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -110,3 +110,4 @@ export default function WhyChoose() {
     </section>
   );
 }
+export default WhyChoose;

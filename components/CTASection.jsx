@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function CTASection() {
+ const CTASection=()=> {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
@@ -33,3 +33,4 @@ export default function CTASection() {
     </section>
   );
 }
+export default CTASection;

@@ -1,39 +1,100 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("Core"); // default category
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
 
   const megaMenu = {
     categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming", "Hire Developer"],
-    topServices: [
-      { name: "Website Development", href: "webdevelopment" }
-      ,
-      { name: "Mobile App Development", href: "mobiledevelopment" },
-      { name: "Gaming Services", href: "GameDevelopmentPage" },
-      { name: "IT Managed Services", href: "webdevelopment" },
-      { name: "AI Development", href: "webdevelopment" }
 
+    Core: {
+      "Top Services": [
+        { name: "Website Development", href: "webdevelopment" },
+        { name: "Mobile App Development", href: "mobiledevelopment" },
+        { name: "Gaming Services", href: "GameDevelopmentPage" },
+        { name: "IT Managed Services", href: "ManageItServices" },
+        { name: "AI Development", href: "ai-development" },
+      ],
+      Ecommerce: [
+        { name: "Shopify", href: "shopify" },
+        { name: "Magento", href: "magento" },
+        { name: "Woocommerce", href: "woocommerce" },
+        { name: "BigCommerce", href: "bigcommerce" },
+        { name: "ZenCart", href: "zencart" },
+        { name: "Shift4shop", href: "shift4shop" },
+        { name: "Prestashop", href: "prestashop" },
+      ],
+      CMS: [
+        { name: "Wordpress", href: "wordpress" },
+        { name: "Wix", href: "wix" },
+      ],
+    },
 
-    ],
-    ecommerce: [
-      "Shopify",
-      "Magento",
-      "Woocommerce",
-      "BigCommerce",
-      "ZenCart",
-      "Shift4shop",
-      "Prestashop",
-    ],
-    cms: ["Wordpress", "Wix"],
+    "AI/ML": {
+      "AI/ML": [
+        { name: "AI Development Company", href: "ai-development" },
+        { name: "Machine Learning", href: "machine-learning" },
+        { name: "AI Chatbot", href: "ai-chatbot" },
+        { name: "AI & ML Implementation", href: "ai-ml-implementation" },
+      ],
+       "Automations": [
+        { name: "Account Payable Automations", href: "account-payable-automation" },
+      ],
+        "IOT": [
+        { name: "IOT Development", href: "iot-development-company" },
+      ]
+     
+    },
+
+    Web3: {
+      Blockchain: [
+        { name: "Blockchain Development", href: "web3development" },
+        { name: "HyperLedger", href: "hyperledger-development-company" },
+        { name: "Solana Development", href: "solana-development" },
+      ],
+      Tokens: [
+        { name: "Crypto Token Development", href: "crypto-token" },
+        { name: "NFT Token", href: "nft-development" },
+        { name: "DeFi Token", href: "defi-development" },
+      ],
+         Wallet: [
+        { name: "Crypto Wallet", href: "crypto-wallet" },
+        { name: "NFT Wallet", href: "nft-wallet" },
+        { name: "DeFi Wallet", href: "defi-wallet" },
+      ],
+    },
+
+    "ERP/CRM": {
+      "Business Solutions": [
+        { name: "ERP Solutions", href: "erp-solutions" },
+        { name: "CRM Development", href: "crm-development" },
+      ],
+    },
+
+    Gaming: {
+      "Game Development": [
+        { name: "Unity Game Development", href: "unity-game" },
+        { name: "Unreal Engine", href: "unreal-engine" },
+        { name: "AR/VR Games", href: "ar-vr-games" },
+      ],
+    },
+
+    "Hire Developer": {
+      "Hire Experts": [
+        { name: "Hire React Developer", href: "hire-react" },
+        { name: "Hire Node Developer", href: "hire-node" },
+        { name: "Hire Python Developer", href: "hire-python" },
+      ],
+    },
   };
 
   const menus = [
-    { title: 'Services', href: "#services", mega: true },
+    { title: "Services", href: "#services", mega: true },
     {
       title: "About",
       href: "/aboutUs",
@@ -52,7 +113,7 @@ export default function Header() {
     },
   ];
 
-  // Close when clicking outside
+  // Close menu on outside click (desktop only)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -64,7 +125,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
       <div className="container flex items-center justify-between py-4 px-4 md:px-8">
         {/* Logo */}
         <Link
@@ -78,93 +139,71 @@ export default function Header() {
         <nav className="hidden md:flex space-x-8 relative" ref={menuRef}>
           {menus.map((menu, idx) => (
             <div key={idx} className="relative">
-           <Link
-           href={menu.href}
-  onMouseEnter={() =>
-    setActiveMenu(activeMenu === menu.title ? null : menu.title)
-  }
-  onClick={() =>
-    setActiveMenu(activeMenu === menu.title ? null : menu.title)
-  }
-  className="flex items-center gap-1 text-[#696363] hover:text-primary font-medium transition"
->
-  {menu.title}
-  {menu.title === "Services" && (
-    <ChevronDown
-      size={16}
-      className={`transition-transform ${
-        activeMenu === menu.title
-          ? "rotate-180 text-primary"
-          : "text-gray-500"
-      }`}
-    />
-  )}
-</Link>
-
+              <Link
+                href={menu.href}
+                onMouseEnter={() =>
+                  setActiveMenu(activeMenu === menu.title ? null : menu.title)
+                }
+                onClick={() =>
+                  setActiveMenu(activeMenu === menu.title ? null : menu.title)
+                }
+                className="flex items-center gap-1 text-[#696363] hover:text-primary font-medium transition"
+              >
+                {menu.title}
+                {menu.title === "Services" && (
+                  <ChevronDown
+                    size={16}
+                    className={`transition-transform ${
+                      activeMenu === menu.title
+                        ? "rotate-180 text-primary"
+                        : "text-gray-500"
+                    }`}
+                  />
+                )}
+              </Link>
 
               {/* Mega Menu for Services */}
               {menu.mega && activeMenu === "Services" && (
-                <div className="absolute left-0 mt-6 w-[700px] bg-white shadow-xl rounded-lg border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50">
-                  {/* Categories */}
+                <div className="absolute left-0 mt-6 w-[850px] bg-white shadow-xl rounded-lg border border-gray-100 p-6 grid grid-cols-4 gap-6 z-50">
+                  {/* Categories List */}
                   <div>
                     {megaMenu.categories.map((cat, i) => (
                       <button
                         key={i}
-                        className={`block w-full text-left px-3 py-2 mt-2 rounded-md text-sm font-medium ${i === 0
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white"
-                          }`}
+                        onMouseEnter={() => setActiveCategory(cat)}
+                        className={`block w-full text-left px-3 py-2 mt-2 rounded-md text-sm font-medium ${
+                          activeCategory === cat
+                            ? "bg-gray-900 text-white"
+                            : "text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white"
+                        }`}
                       >
                         {cat}
                       </button>
                     ))}
                   </div>
 
-                  {/* Top Services */}
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Top Services</h4>
-                    <div className="space-y-1 text-sm text-gray-700">
-                      {megaMenu.topServices.map((srv, i) => (
-                        <Link
-                          key={i}
-                          href={srv.href}
-                          className="block px-2 py-1 hover:text-primary cursor-pointer transition"
-                        >
-                          {srv.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-
-
-                  {/* Ecommerce */}
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Ecommerce</h4>
-                    <ul className="space-y-1 text-sm text-gray-700">
-                      {megaMenu.ecommerce.map((srv, i) => (
-                        <li
-                          key={i}
-                          className="hover:text-primary cursor-pointer transition"
-                        >
-                          {srv}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* CMS */}
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">CMS</h4>
-                    <ul className="space-y-1 text-sm text-gray-700">
-                      {megaMenu.cms.map((srv, i) => (
-                        <li
-                          key={i}
-                          className="hover:text-primary cursor-pointer transition"
-                        >
-                          {srv}
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Submenu (groups of links) */}
+                  <div className="col-span-3 grid grid-cols-3 gap-6">
+                    {Object.entries(megaMenu[activeCategory] || {}).map(
+                      ([group, links], idx) => (
+                        <div key={idx}>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            {group}
+                          </h4>
+                          <div className="space-y-1 text-sm text-gray-700">
+                            {links.map((srv, i) => (
+                              <Link
+                                key={i}
+                                href={srv.href}
+                                className="block px-2 py-1 hover:text-primary cursor-pointer transition"
+                              >
+                                {srv.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               )}
@@ -189,12 +228,12 @@ export default function Header() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <a
-            href="#contact"
+          <Link
+            href="contactUs"
             className="px-5 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow hover:opacity-90 transition"
           >
-            Get Started
-          </a>
+            Free Consultation
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -219,12 +258,62 @@ export default function Header() {
                   className="flex justify-between items-center py-2 text-gray-700 font-medium hover:text-primary"
                 >
                   {menu.title}
-                  {menu.dropdown && (
+                  {(menu.dropdown || menu.mega) && (
                     <span className="text-sm">
                       {activeMenu === menu.title ? "▲" : "▼"}
                     </span>
                   )}
                 </button>
+
+                {/* Mega Services Accordion */}
+                {menu.mega && activeMenu === "Services" && (
+                  <div className="pl-4 space-y-2 mt-2 border-l border-gray-200">
+                    {megaMenu.categories.map((cat, i) => (
+                      <div key={i} className="flex flex-col">
+                        <button
+                          onClick={() =>
+                            setActiveCategory(
+                              activeCategory === cat ? null : cat
+                            )
+                          }
+                          className="flex justify-between items-center py-2 text-sm font-medium text-gray-800 hover:text-primary"
+                        >
+                          {cat}
+                          <span className="text-xs">
+                            {activeCategory === cat ? "▲" : "▼"}
+                          </span>
+                        </button>
+
+                        {/* Submenu (groups) */}
+                        {activeCategory === cat && (
+                          <div className="pl-4 space-y-3 text-sm text-gray-600">
+                            {Object.entries(megaMenu[cat] || {}).map(
+                              ([group, links], idx) => (
+                                <div key={idx}>
+                                  <p className="font-semibold text-gray-800 mb-1">
+                                    {group}
+                                  </p>
+                                  {links.map((srv, i) => (
+                                    <Link
+                                      key={i}
+                                      href={srv.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="block py-1 hover:text-primary"
+                                    >
+                                      {srv.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Normal Dropdown */}
                 {menu.dropdown && activeMenu === menu.title && (
                   <div className="pl-4 space-y-1">
                     {menu.dropdown.map((item, i) => (
@@ -241,6 +330,8 @@ export default function Header() {
                 )}
               </div>
             ))}
+
+            {/* CTA */}
             <a
               href="#contact"
               className="mt-4 text-center px-5 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow hover:opacity-90 transition"
