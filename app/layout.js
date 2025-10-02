@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import ChatBot from "@/components/ChatBot";
-import PWAFooter from "@/components/PWAFooter";
+import PWAFooter from "@/components/PwaFooter";
 export const metadata = {
   title: "TechVault - Digital Solutions",
   description: "Next-Level Digital Solutions for your business growth",
