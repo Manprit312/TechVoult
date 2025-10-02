@@ -1,67 +1,100 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function WebDevelopmentPage() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
   return (
     <main className="w-full">
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 py-16 mt-16">
+      <section className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 py-24 mt-16 text-white">
         <div className="mx-auto max-w-screen-xl grid md:grid-cols-2 gap-12 items-center px-6">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
+            <h1 className="text-4xl md:text-5xl font-extrabold">
               Top Web Development Company
             </h1>
-            <p className="mt-4 text-lg text-gray-600">
-              We build scalable, secure, and high-performing websites tailored for your business success.
+            <p className="mt-4 text-lg opacity-90">
+              We build scalable, secure, and high-performing websites tailored
+              for your business success.
             </p>
             <div className="mt-6">
               <Link
                 href="#contact"
-                className="inline-block rounded-lg bg-gradient-to-r from-orange-400 to-pink-500 px-6 py-3 text-white font-semibold shadow hover:opacity-90"
+                className="inline-block rounded-lg bg-white text-indigo-700 px-6 py-3 font-semibold shadow hover:bg-gray-100 transition"
               >
                 Get Free Consultation
               </Link>
             </div>
-          </div>
-          {/* Placeholder for Hero Image */}
-          <div className="w-full h-80 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
-            Hero Image
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9 }}
+          >
+            <Image
+              src="/assets/images/webdevelopment.jpg"
+              alt="Web Development"
+              width={600}
+              height={600}
+              className="object-cover rounded-xl shadow-lg"
+            />
+          </motion.div>
         </div>
       </section>
 
       {/* ABOUT COMPANY */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-screen-xl grid md:grid-cols-2 gap-12 px-6">
-          {/* Image Placeholder */}
-          <div className="w-full h-72 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
-            About Image
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold">SDLC Corp – Expert Website Development Services</h2>
-            <p className="mt-4 text-gray-600">
-              We deliver custom websites that are fast, secure, and scalable. Our expert developers use the latest
-              technologies to create seamless user experiences across devices.
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-screen-xl grid md:grid-cols-2 gap-12 px-6 items-center">
+          <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
+            <Image
+              src="/assets/images/webdevelopmentexpert.jpg"
+              alt="About Us"
+              width={600}
+              height={400}
+              className="object-cover rounded-xl shadow-md"
+            />
+          </motion.div>
+          <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
+            <h2 className="text-3xl font-bold text-gray-900">
+              SDLC Corp – Expert Website Development Services
+            </h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              We deliver custom websites that are fast, secure, and scalable.
+              Our expert developers use the latest technologies to create
+              seamless user experiences across devices.
             </p>
-            <div className="mt-6 grid grid-cols-2 gap-6">
+            <div className="mt-8 flex gap-12">
               <div>
-                <p className="text-3xl font-extrabold text-indigo-600">140+</p>
+                <p className="text-4xl font-extrabold text-blue-600">140+</p>
                 <p className="text-gray-600">Projects Completed</p>
               </div>
               <div>
-                <p className="text-3xl font-extrabold text-pink-600">450+</p>
+                <p className="text-4xl font-extrabold text-purple-600">450+</p>
                 <p className="text-gray-600">Happy Clients</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 py-16">
+      <section className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 py-20">
         <div className="mx-auto max-w-screen-xl px-6 text-center">
-          <h2 className="text-3xl font-bold">Our Website Development Services</h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-8 text-left">
+          <motion.h2
+            initial="hidden"
+            whileInView="show"
+            variants={fadeUp}
+            className="text-3xl font-bold text-gray-900"
+          >
+            Our Website Development Services
+          </motion.h2>
+          <div className="mt-12 grid md:grid-cols-3 gap-8 text-left">
             {[
               "Custom Web Development",
               "CMS Development",
@@ -70,117 +103,213 @@ export default function WebDevelopmentPage() {
               "UI/UX Design",
               "Maintenance & Support",
             ].map((service, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="p-6 bg-white rounded-xl shadow hover:shadow-md"
+                initial="hidden"
+                whileInView="show"
+                variants={fadeUp}
+                whileHover={{ scale: 1.03 }}
+                className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition"
               >
-                <h3 className="text-lg font-semibold">{service}</h3>
-                <p className="mt-2 text-gray-600 text-sm">
-                  High-quality {service.toLowerCase()} tailored to business needs.
+                <h3 className="text-lg font-semibold text-indigo-700">
+                  {service}
+                </h3>
+                <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+                  High-quality {service.toLowerCase()} tailored to business
+                  needs.
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-screen-xl px-6 text-center">
-          <h2 className="text-3xl font-bold">Why Choose SDLC Corp?</h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-8 text-left">
-            {[
-              "Expert Developers",
-              "Agile Process",
-              "On-Time Delivery",
-            ].map((reason, i) => (
-              <div
-                key={i}
-                className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow-sm"
-              >
-                <h3 className="text-lg font-semibold">{reason}</h3>
-                <p className="mt-2 text-gray-600 text-sm">
-                  We guarantee {reason.toLowerCase()} for every project.
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* PORTFOLIO */}
-      <section className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 py-16">
+      <section className="bg-white py-20">
         <div className="mx-auto max-w-screen-xl px-6 text-center">
-          <h2 className="text-3xl font-bold">Our Portfolio</h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-8">
+          <motion.h2
+            initial="hidden"
+            whileInView="show"
+            variants={fadeUp}
+            className="text-3xl font-bold text-gray-900"
+          >
+            Our Portfolio
+          </motion.h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            We take pride in delivering innovative websites, ecommerce
+            solutions, blockchain platforms, and custom applications.
+          </p>
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
-              <div
+              <motion.div
                 key={i}
-                className="w-full h-60 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: i * 0.2 }}
+                className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
               >
-                Portfolio Image {i}
-              </div>
+                <Image
+                  src={`/assets/images/portfolio.webp`}
+                  alt={`Portfolio ${i}`}
+                  width={400}
+                  height={300}
+                  className="object-cover w-full h-60 hover:scale-105 transition-transform"
+                />
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-screen-xl px-6">
-          <h2 className="text-3xl font-bold text-center">
-            Easy & Fast Web Development Process
+      {/* TECHNOLOGIES */}
+      <section className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 py-20">
+        <div className="mx-auto max-w-screen-xl px-6 text-center">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Technologies We Use
           </h2>
-          <div className="mt-10 grid md:grid-cols-4 gap-8">
-            {["Planning", "Design", "Development", "Deployment"].map((step, i) => (
-              <div
+         <div className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+  {[
+    "react.jpeg",
+    "next.jpeg",
+    "node.png",
+    "vue.jpeg",
+    "angular.png",
+    "python.jpeg",
+  ].map((tech, i) => (
+    <motion.div
+      key={i}
+      initial="hidden"
+      whileInView="show"
+      variants={fadeUp}
+      className="bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden h-28 w-full"
+    >
+      <Image
+        src={`/assets/images/${tech}`}
+        alt={tech}
+        width={400}
+        height={100}
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  ))}
+</div>
+
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-screen-xl px-6 text-center">
+          <h2 className="text-3xl font-bold text-gray-900">What Our Clients Say</h2>
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "David Smith",
+                feedback:
+                  "SDLC Corp built our ecommerce store with excellent quality. Smooth process and on-time delivery!",
+              },
+              {
+                name: "Sophia Johnson",
+                feedback:
+                  "Professional team! They helped us scale our web app quickly and securely.",
+              },
+              {
+                name: "Amit Sharma",
+                feedback:
+                  "Amazing UI/UX design and development. Our traffic doubled within 3 months!",
+              },
+            ].map((t, i) => (
+              <motion.div
                 key={i}
-                className="p-6 text-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow-sm"
+                initial="hidden"
+                whileInView="show"
+                variants={fadeUp}
+                className="p-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-xl shadow"
               >
-                <h3 className="text-lg font-semibold">{step}</h3>
-                <p className="mt-2 text-gray-600 text-sm">
-                  Step {i + 1}: {step} phase in building your website.
-                </p>
-              </div>
+                <p className="text-gray-600 italic">“{t.feedback}”</p>
+                <h4 className="mt-4 font-semibold text-indigo-700">{t.name}</h4>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT FORM */}
-      <section id="contact" className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 py-16">
-        <div className="mx-auto max-w-screen-lg px-6 grid md:grid-cols-2 gap-12">
-          {/* Info */}
-          <div>
-            <h2 className="text-3xl font-bold mb-4">Let’s Talk About Your Project</h2>
-            <p className="text-gray-600">
+      {/* FAQ */}
+      <section className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 py-20">
+        <div className="mx-auto max-w-screen-lg px-6">
+          <h2 className="text-3xl font-bold text-gray-900 text-center">FAQ</h2>
+          <div className="mt-8 space-y-4">
+            {[
+              {
+                q: "How long does it take to build a website?",
+                a: "Depending on complexity, it can take from 4 weeks to 3 months.",
+              },
+              {
+                q: "Do you provide support after launch?",
+                a: "Yes, we provide ongoing maintenance and support plans.",
+              },
+              {
+                q: "Which technologies do you use?",
+                a: "We use React, Next.js, Node.js, Python, and other modern stacks.",
+              },
+            ].map((faq, i) => (
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="show"
+                variants={fadeUp}
+                className="bg-white p-6 rounded-xl shadow cursor-pointer hover:shadow-md"
+              >
+                <h3 className="font-semibold text-indigo-700">{faq.q}</h3>
+                <p className="mt-2 text-gray-600 text-sm">{faq.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 py-20 text-white"
+      >
+        <div className="mx-auto max-w-screen-lg px-6 grid md:grid-cols-2 gap-12 items-center">
+          <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
+            <h2 className="text-3xl font-bold mb-4">
+              Let’s Talk About Your Project
+            </h2>
+            <p className="opacity-90">
               Fill the form and let’s build your dream website together.
             </p>
-          </div>
-          {/* Form */}
-          <form className="bg-white p-8 rounded-xl shadow space-y-4">
+          </motion.div>
+          <motion.form
+            initial="hidden"
+            whileInView="show"
+            variants={fadeUp}
+            className="bg-white p-8 rounded-xl shadow-md space-y-4 text-gray-900"
+          >
             <input
               type="text"
               placeholder="Full Name"
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 outline-none"
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500 outline-none"
             />
             <textarea
               placeholder="Tell us about your project"
               rows={4}
-              className="w-full border rounded-lg px-3 py-2"
+              className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
             />
             <button
               type="submit"
-              className="w-full rounded-lg bg-gradient-to-r from-orange-400 to-pink-500 text-white py-3 font-semibold"
+              className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 font-semibold hover:opacity-90 transition"
             >
               Submit
             </button>
-          </form>
+          </motion.form>
         </div>
       </section>
     </main>

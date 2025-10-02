@@ -19,6 +19,10 @@ export default function Header() {
         { name: "Gaming Services", href: "GameDevelopmentPage" },
         { name: "IT Managed Services", href: "ManageItServices" },
         { name: "AI Development", href: "ai-development" },
+        {name:"Social Media Management", href:"social-media"},
+        {name:"Content Writing Services", href:"content-creation"},
+        {name:"Videography Services", href:"videography"},
+        {name:"Photography Services", href:"photography"},
       ],
       Ecommerce: [
         { name: "Shopify", href: "shopify" },
@@ -84,7 +88,11 @@ export default function Header() {
     },
 
     "ERP/CRM": {
-      "Business Solutions": [
+      "Odoo": [
+        { name: "Odoo Development", href: "odoo-services" },
+        { name: "CRM Development", href: "crm-development" },
+      ],
+       "Salesforce": [
         { name: "ERP Solutions", href: "erp-solutions" },
         { name: "CRM Development", href: "crm-development" },
       ],

@@ -32,7 +32,7 @@ export default function CryptoDerivativesExchange() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800">
+    <div className="bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800 mt-16">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-indigo-900 to-blue-800 text-white py-16 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between">
         <motion.div
