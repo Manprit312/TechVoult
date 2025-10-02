@@ -10,13 +10,13 @@ export default function Header() {
   const menuRef = useRef(null);
 
   const megaMenu = {
-    categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming", "Hire Developer"],
+    categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming", ],
 
     Core: {
       "Top Services": [
         { name: "Website Development", href: "webdevelopment" },
         { name: "Mobile App Development", href: "mobiledevelopment" },
-        { name: "Gaming Services", href: "GameDevelopmentPage" },
+        { name: "Gaming Services", href: "gamedevelopment" },
         { name: "IT Managed Services", href: "ManageItServices" },
         { name: "AI Development", href: "ai-development" },
         {name:"Social Media Management", href:"social-media"},
@@ -90,19 +90,19 @@ export default function Header() {
     "ERP/CRM": {
       "Odoo": [
         { name: "Odoo Development", href: "odoo-services" },
-        { name: "CRM Development", href: "crm-development" },
+        // { name: "CRM Development", href: "crm-development" },
       ],
-       "Salesforce": [
-        { name: "ERP Solutions", href: "erp-solutions" },
-        { name: "CRM Development", href: "crm-development" },
-      ],
+      //  "Salesforce": [
+      //   { name: "ERP Solutions", href: "erp-solutions" },
+      //   { name: "CRM Development", href: "crm-development" },
+      // ],
     },
 
     Gaming: {
       "Game Development": [
-        { name: "Unity Game Development", href: "unity-game" },
-        { name: "Unreal Engine", href: "unreal-engine" },
-        { name: "AR/VR Games", href: "ar-vr-games" },
+        { name: "Unity Game Development", href: "gamedevelopment" },
+        { name: "Unreal Engine", href: "gamedevelopment" },
+        { name: "AR/VR Games", href: "gamedevelopment" },
       ],
     },
 

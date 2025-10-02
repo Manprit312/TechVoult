@@ -4,6 +4,7 @@ import ServicePage from "@/components/ServicePage";
 export default function PhotographyPage() {
   return (
     <ServicePage
+    serviveImage={"/assets/images/photographyhero.jpeg"}
       title="Photography Services"
       subtitle="Capture stunning visuals that highlight your brand, products, and events with our professional photography."
       stats={[
@@ -11,11 +12,14 @@ export default function PhotographyPage() {
         { value: "150+", label: "Clients Served" },
       ]}
       services={[
-        "Product Photography",
-        "Event Photography",
-        "Portraits",
-        "Lifestyle Shoots",
-        "Commercial Photography",
+        {name: "Product Photography", src: "/assets/images/productphotography.webp"},
+        {name: "Event Photography", src: "/assets/images/eventphotography.jpeg"},
+        {name: "Portraits", src: "/assets/images/portraits.jpeg"},
+        {name: "Lifestyle Shoots", src: "/assets/images/lifestyleshoots.jpeg"},
+        {name: "Commercial Photography", src: "/assets/images/commercialphotography.jpeg"},
+        
+      
+  
       ]}
       features={[
         "High-Resolution Shots",
@@ -23,9 +27,10 @@ export default function PhotographyPage() {
         "Editing & Retouching",
       ]}
       portfolio={[
-        "Product Shoot for E-commerce",
-        "Corporate Event Coverage",
-        "Fashion Lifestyle Shoot",
+        {name: "Product Shoot for E-commerce", src: "/assets/images/productphotography.webp"},
+        {name: "Corporate Event Coverage", src: "/assets/images/corporateimage.jpeg"},
+        {name: "Fashion Lifestyle Shoot", src: "/assets/images/lifestyle.jpeg"},
+       
       ]}
       faqs={[
         { q: "Do you provide editing?", a: "Yes, we provide full editing and retouching services." },

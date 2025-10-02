@@ -4,6 +4,7 @@ import ServicePage from "@/components/ServicePage";
 export default function SocialMediaPage() {
   return (
     <ServicePage
+      serviveImage={"/assets/images/socialmediahero.png"}
       title="Social Media Management"
       subtitle="Boost your brand with powerful social media management services that drive engagement, reach, and conversions."
       stats={[
@@ -11,11 +12,12 @@ export default function SocialMediaPage() {
         { value: "50+", label: "Brands Supported" },
       ]}
       services={[
-        "Social Media Strategy",
-        "Paid Advertising",
-        "Influencer Marketing",
-        "Content Scheduling",
-        "Analytics & Reporting",
+        { name: "Social Media Strategy", src: "/assets/images/socialmediastrategy.jpeg" },
+        { name: "Paid Advertising", src: "/assets/images/paidadd.jpeg" },
+        { name: "Influencer Marketing", src: "/assets/images/influencermarketing.jpeg" },
+        { name:"Content Scheduling", src: "/assets/images/contentscheduling.jpeg" },
+
+        {name:"Analytics & Reporting", src: "/assets/images/analyticreport.jpeg" },
       ]}
       features={[
         "24/7 Monitoring & Support",
@@ -23,10 +25,12 @@ export default function SocialMediaPage() {
         "Cross-Platform Management",
       ]}
       portfolio={[
-        "Instagram Growth for Fashion Brand",
-        "LinkedIn Lead Campaign for B2B",
-        "TikTok Engagement Boost",
+        {name: "Instagram Growth for Fashion Brand", src: "/assets/images/socialmediaport.jpg"},
+        {name: "LinkedIn Lead Campaign for B2B", src: "/assets/images/socialport2.jpeg"},
+        {name: "TikTok Engagement Boost", src: "/assets/images/socialport3.jpeg"},
       ]}
+ 
+    
       faqs={[
         { q: "What platforms do you manage?", a: "Instagram, Facebook, LinkedIn, TikTok, Twitter and more." },
         { q: "Do you create content too?", a: "Yes, we create engaging posts, videos, and graphics." },

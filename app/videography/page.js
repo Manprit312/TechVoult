@@ -4,6 +4,7 @@ import ServicePage from "@/components/ServicePage";
 export default function VideographyPage() {
   return (
     <ServicePage
+    serviveImage={"/assets/images/videographyhero.jpeg"}
       title="Videography Services"
       subtitle="Bring your story to life with cinematic videography that inspires, informs, and converts."
       stats={[
@@ -11,11 +12,12 @@ export default function VideographyPage() {
         { value: "100+", label: "Brands Served" },
       ]}
       services={[
-        "Corporate Videos",
-        "Product Ads",
-        "Event Videography",
-        "Drone Videography",
-        "Short Films",
+        {name:"Corporate Videos",src:"/assets/images/corporatevideo.jpeg"},
+        {name:"Product Ads",src:"/assets/images/productadds.jpeg"},
+        {name:"Event Videography",src:"/assets/images/eventvideo.jpeg"},
+        {name:"Drone Videography",src:"/assets/images/dronevideo.jpeg"},
+        {name:"Short Films",src:"/assets/images/shortfilm.jpeg"},
+    
       ]}
       features={[
         "4K Video Quality",
@@ -23,10 +25,12 @@ export default function VideographyPage() {
         "Motion Graphics & Animation",
       ]}
       portfolio={[
-        "Corporate Profile Video",
-        "Drone Footage for Real Estate",
-        "E-commerce Product Ad",
+        {name: "Corporate Profile Video", src: "/assets/images/videographyport1.jpeg"},
+        {name: "Drone Footage for Real Estate", src: "/assets/images/dronevideo.jpeg"},
+        {name: "E-commerce Product Ad", src: "/assets/images/videographyport3.jpeg"},
+       
       ]}
+     
       faqs={[
         { q: "Do you offer editing services?", a: "Yes, including motion graphics, VFX, and color grading." },
         { q: "Can you shoot on-site?", a: "Yes, we shoot at your location or provide studio setup." },

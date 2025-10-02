@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { ChevronDown } from "lucide-react";
 import "keen-slider/keen-slider.min.css";
+import Link from "next/link";
 
 // ---------------------- FAQ Accordion ----------------------
 function FAQAccordion() {
@@ -115,9 +116,12 @@ const animation = { duration: 40000, easing: (t) => t }
             Reliable, scalable IT solutions designed to keep your business running smoothly.
           </p>
           <div className="mt-6">
-            <button className="px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow hover:opacity-90">
+            <Link
+                        href="contactUs"
+           className="px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow hover:opacity-90">
               Get a Free Consultation
-            </button>
+          
+            </Link>
           </div>
         </div>
       </section>
