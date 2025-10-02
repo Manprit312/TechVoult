@@ -51,7 +51,7 @@ export default function Header() {
         { name: "Account Payable Automations", href: "account-payable-automation" },
       ],
       "IOT": [
-        { name: "IOT Development", href: "iot-development-company" },
+        { name: "IOT Development", href: "iot-development" },
       ]
 
     },

@@ -2,15 +2,11 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import {
   ShoppingCart,
-  Code2,
-  MonitorSmartphone,
-  Users,
-  Trophy,
-  Briefcase,
   CheckCircle2,
 } from "lucide-react";
 
@@ -34,19 +30,32 @@ function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
       };
       requestAnimationFrame(step);
     };
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          animate();
-        }
-      });
-    }, { threshold: 0.3 });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            animate();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
     io.observe(el);
     return () => io.disconnect();
   }, [end, duration]);
 
-  return <span ref={ref} className={className}>{value}{suffix}</span>;
+  return (
+    <motion.span
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      {value}{suffix}
+    </motion.span>
+  );
 }
 
 /* ---------------- Page ---------------- */
@@ -65,36 +74,70 @@ export default function ZenCartPage() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 mt-16">
+    <main className="bg-gradient-to-br from-green-50 via-emerald-50 to-white text-gray-800 mt-18">
 
       {/* HERO */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-purple-100 to-indigo-100">
+      <motion.section
+        className="py-20 px-6 bg-gradient-to-r from-emerald-100 via-green-100 to-white"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-4xl font-extrabold">Zen Cart Development Services</h1>
+          <div>
+            <h1 className="text-4xl font-extrabold text-emerald-900">Zen Cart Development Services</h1>
             <p className="mt-4 text-gray-700">
               Build robust, scalable, and secure Zen Cart solutions to accelerate your online business growth.
             </p>
-            <div className="mt-6 h-52 bg-gray-200 rounded-xl flex items-center justify-center">[ Hero Image ]</div>
-          </motion.div>
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-xl space-y-4">
+            <motion.div
+              className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <Image src="/assets/images/zencarthero.jpeg" alt="Zen Cart Development"
+                width={600} height={400} className="w-full h-full object-cover" />
+            </motion.div>
+          </div>
+          <motion.form
+            onSubmit={handleSubmit}
+            className="bg-white p-6 rounded-2xl shadow-xl space-y-4"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            viewport={{ once: true }}
+          >
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *"
               className="w-full p-3 border rounded-lg" required />
             <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email *"
               className="w-full p-3 border rounded-lg" required />
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your requirements *"
               rows={4} className="w-full p-3 border rounded-lg" required></textarea>
-            <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-95">
+            <motion.button type="submit"
+              className="w-full px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-lg font-semibold hover:opacity-95"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
               Submit
-            </button>
+            </motion.button>
             {status && <p className="text-sm text-green-700">{status}</p>}
-          </form>
+          </motion.form>
         </div>
-      </section>
+      </motion.section>
 
       {/* OVERVIEW */}
-      <section className="py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div className="h-56 bg-gray-200 rounded-xl flex items-center justify-center">[ Overview Image ]</div>
+      <motion.section
+        className="py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        <motion.div className="h-56 rounded-xl overflow-hidden shadow-lg" whileHover={{ scale: 1.05 }}>
+          <Image src="/assets/images/zencart2.jpeg" alt="Zen Cart Development"
+            width={600} height={400} className="w-full h-full object-cover" />
+        </motion.div>
         <div>
           <h2 className="text-2xl font-bold">Overview - Zen Cart Development Services</h2>
           <p className="mt-4 text-gray-700">
@@ -102,7 +145,7 @@ export default function ZenCartPage() {
             Our team delivers scalable Zen Cart stores with custom modules, responsive themes, and secure integrations.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES GRID */}
       <section className="py-16 bg-white">
@@ -117,9 +160,12 @@ export default function ZenCartPage() {
               "Performance Optimization",
               "Maintenance & Support",
             ].map((service, i) => (
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow"
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <ShoppingCart className="w-8 h-8 text-indigo-600 mb-3" />
+              <motion.div key={i}
+                className="p-6 bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-xl shadow"
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <ShoppingCart className="w-8 h-8 text-green-600 mb-3" />
                 <h4 className="font-semibold">{service}</h4>
               </motion.div>
             ))}
@@ -128,25 +174,28 @@ export default function ZenCartPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-green-50 via-emerald-50 to-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-2xl font-bold">Elevate your Zen Cart store with expert developers</h2>
             <p className="mt-4 text-gray-700">Boost your eCommerce growth with advanced Zen Cart features and integrations.</p>
-            <a href="#contact" className="inline-block mt-6 px-5 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold">
+            <a href="#contact" className="inline-block mt-6 px-5 py-2 rounded-lg bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold">
               Talk to an Expert
             </a>
           </div>
-          <div className="h-56 bg-gray-200 rounded-xl flex items-center justify-center">[ CTA Image ]</div>
+          <motion.div className="h-56 rounded-xl overflow-hidden shadow-lg" whileHover={{ scale: 1.05 }}>
+            <Image src="/assets/images/zencart3.jpeg" alt="Zen Cart Development"
+              width={600} height={400} className="w-full h-full object-cover" />
+          </motion.div>
         </div>
       </section>
 
       {/* COUNTERS */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div><Counter end={70} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Industries Served</p></div>
-          <div><Counter end={150} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Projects Delivered</p></div>
-          <div><Counter end={200} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Happy Clients</p></div>
+          <div><Counter end={70} suffix="+" className="text-4xl font-bold text-green-600" /><p className="mt-2">Industries Served</p></div>
+          <div><Counter end={150} suffix="+" className="text-4xl font-bold text-green-600" /><p className="mt-2">Projects Delivered</p></div>
+          <div><Counter end={200} suffix="+" className="text-4xl font-bold text-green-600" /><p className="mt-2">Happy Clients</p></div>
         </div>
       </section>
 
@@ -156,7 +205,10 @@ export default function ZenCartPage() {
         <Swiper slidesPerView={1.2} spaceBetween={20} breakpoints={{768:{slidesPerView:2},1024:{slidesPerView:3}}}>
           {[1,2,3].map((i)=>(
             <SwiperSlide key={i}>
-              <div className="h-48 bg-gray-200 rounded-xl flex items-center justify-center">[ Portfolio {i} ]</div>
+              <motion.div className="h-48 rounded-xl overflow-hidden shadow-lg" whileHover={{ scale: 1.05 }}>
+                <Image src={`/assets/images/zenport${i}.jpeg`} alt="Zen Cart Development"
+                  width={600} height={400} className="w-full h-full object-cover" />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -168,9 +220,10 @@ export default function ZenCartPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Our Zen Cart Web Development Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {["Consultation","Custom Development","Testing","Launch"].map((step, i)=>(
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow text-center"
+              <motion.div key={i}
+                className="p-6 bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-xl shadow text-center"
                 initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}}>
-                <CheckCircle2 className="mx-auto w-8 h-8 text-indigo-600"/>
+                <CheckCircle2 className="mx-auto w-8 h-8 text-green-600"/>
                 <h4 className="mt-4 font-semibold">{step}</h4>
               </motion.div>
             ))}
@@ -179,12 +232,15 @@ export default function ZenCartPage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-green-50 via-emerald-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-10">Why Choose Us As A Zen Cart Development Company?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {["Proven Experience","Cost-Effective Solutions","End-to-End Support"].map((txt,i)=>(
-              <div key={i} className="p-6 bg-white rounded-xl shadow">{txt}</div>
+              <motion.div key={i} className="p-6 bg-white rounded-xl shadow"
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                {txt}
+              </motion.div>
             ))}
           </div>
         </div>
@@ -201,9 +257,10 @@ export default function ZenCartPage() {
               "We scaled revenue by 40% with their solutions.",
             ].map((t,i)=>(
               <SwiperSlide key={i}>
-                <div className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow">
+                <motion.div className="p-6 bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-xl shadow"
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                   {t}
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -211,14 +268,14 @@ export default function ZenCartPage() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section id="contact" className="py-16 bg-gradient-to-r from-green-50 via-emerald-50 to-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-6">Let’s Talk About Your Project</h2>
           <form onSubmit={handleSubmit} className="grid gap-4 md:grid-cols-2">
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *" className="p-3 border rounded-lg"/>
             <input name="email" value={form.email} onChange={handleChange} placeholder="Email *" className="p-3 border rounded-lg"/>
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your Requirements *" className="md:col-span-2 p-3 border rounded-lg h-32"></textarea>
-            <button type="submit" className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90">
+            <button type="submit" className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-lg font-semibold hover:opacity-90">
               Submit
             </button>
             {status && <p className="text-green-600 text-sm">{status}</p>}
@@ -229,7 +286,7 @@ export default function ZenCartPage() {
       {/* FAQ */}
       <section className="py-16 max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
-        <div className="bg-white rounded-2xl shadow divide-y divide-gray-200">
+        <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-2xl shadow divide-y divide-gray-200">
           {[
             {q:"What is Zen Cart?",a:"Zen Cart is an open-source eCommerce platform built with PHP."},
             {q:"Do you migrate existing stores to Zen Cart?",a:"Yes, we provide seamless migration services."},
@@ -245,7 +302,7 @@ export default function ZenCartPage() {
       </section>
 
       {/* AWARDS */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-green-50 via-emerald-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h3 className="text-xl font-bold mb-6">Partners & Recognition</h3>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-6">

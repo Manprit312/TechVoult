@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -43,17 +43,14 @@ function Counter({ end = 0, duration = 1200, suffix = "+", className = "" }) {
       requestAnimationFrame(step);
     };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !startedRef.current) {
-            startedRef.current = true;
-            animate();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !startedRef.current) {
+          startedRef.current = true;
+          animate();
+        }
+      });
+    }, { threshold: 0.3 });
 
     io.observe(el);
     return () => io.disconnect();
@@ -97,10 +94,10 @@ function StatsSection() {
           {stats.map((s, i) => (
             <motion.div
               key={i}
-              className="rounded-2xl shadow-sm bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 p-6 flex items-center gap-4"
+              className="rounded-2xl shadow-sm bg-gradient-to-br from-orange-50 via-gray-50 to-white p-6 flex items-center gap-4"
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
             >
-              <div className="rounded-xl bg-white p-3 text-indigo-600 shadow-sm">
+              <div className="rounded-xl bg-white p-3 text-orange-600 shadow-sm">
                 {s.icon}
               </div>
               <div>
@@ -124,9 +121,7 @@ export default function MagentoPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("Submitting...");
@@ -140,22 +135,22 @@ export default function MagentoPage() {
     {
       title: "Customizable Storefront",
       desc: "Tailored themes and designs for your brand.",
-      icon: <MonitorSmartphone className="w-8 h-8 text-indigo-600" />,
+      icon: <MonitorSmartphone className="w-8 h-8 text-orange-600" />,
     },
     {
       title: "Magento Extensions",
       desc: "Custom modules to enhance store functionality.",
-      icon: <Boxes className="w-8 h-8 text-purple-600" />,
+      icon: <Boxes className="w-8 h-8 text-gray-700" />,
     },
     {
       title: "UI/UX Enhancement",
       desc: "Improve user experience and conversions.",
-      icon: <Users className="w-8 h-8 text-pink-600" />,
+      icon: <Users className="w-8 h-8 text-black" />,
     },
   ];
 
   const techStack = [
-    { name: "PHP", icon: <Code2 className="w-8 h-8 text-indigo-600" /> },
+    { name: "PHP", icon: <Code2 className="w-8 h-8 text-orange-600" /> },
     { name: "JavaScript", icon: <Code2 className="w-8 h-8 text-yellow-500" /> },
     { name: "React", icon: <MonitorSmartphone className="w-8 h-8 text-blue-500" /> },
     { name: "MySQL", icon: <Database className="w-8 h-8 text-green-600" /> },
@@ -170,27 +165,35 @@ export default function MagentoPage() {
   ];
 
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800  mt-16">
+    <main className="bg-gradient-to-br from-orange-50 via-gray-50 to-white text-gray-800 mt-18">
       {/* HERO */}
       <motion.section
-        className="py-20 px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100"
+        className="py-20 px-6 bg-gradient-to-r from-orange-100 via-gray-100 to-white"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-4xl font-extrabold">Magento Development Services</h1>
+            <h1 className="text-4xl font-extrabold text-gray-900">
+              Magento Development Services
+            </h1>
             <p className="mt-4 text-gray-700">
               Build scalable, secure, and high-performing Magento stores with our expert developers.
             </p>
             <motion.div
-              className="mt-6 h-52 rounded-xl bg-gray-200 border flex items-center justify-center"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
-              [ Hero Image ]
+              <Image
+                src="/assets/images/magentohero.jpeg"
+                alt="Magento Development"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
 
@@ -200,37 +203,17 @@ export default function MagentoPage() {
             className="bg-white p-6 rounded-2xl shadow-xl space-y-4"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <input
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Full Name *"
-              className="w-full p-3 border rounded-lg"
-              required
-            />
-            <input
-              name="email"
-              type="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="Email *"
-              className="w-full p-3 border rounded-lg"
-              required
-            />
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Your requirements *"
-              rows={4}
-              className="w-full p-3 border rounded-lg"
-              required
-            ></textarea>
+            <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *"
+              className="w-full p-3 border rounded-lg" required />
+            <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email *"
+              className="w-full p-3 border rounded-lg" required />
+            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your requirements *"
+              rows={4} className="w-full p-3 border rounded-lg" required />
             <motion.button
               type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-95"
+              className="w-full px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-lg font-semibold hover:opacity-95"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -252,11 +235,12 @@ export default function MagentoPage() {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <div className="h-56 rounded-xl bg-gray-200 border flex items-center justify-center">
-          [ Magento Illustration ]
+        <div className="h-56 rounded-xl overflow-hidden shadow-lg">
+          <Image src="/assets/images/magentoexpert.png" alt="Magento Expertise"
+            width={600} height={400} className="w-full h-full object-cover" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold">Magento Development Expertise</h3>
+          <h3 className="text-2xl font-bold text-gray-900">Magento Development Expertise</h3>
           <p className="mt-4 text-gray-700">
             Our Magento team provides complete eCommerce solutions from
             development, migration, extension building, to support & maintenance.
@@ -276,14 +260,12 @@ export default function MagentoPage() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">
-            Features of Magento Development
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-10">Features of Magento Development</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((f, i) => (
               <motion.div
                 key={i}
-                className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow text-center"
+                className="p-6 bg-gradient-to-br from-orange-50 via-gray-50 to-white rounded-xl shadow text-center"
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
               >
                 <div className="mx-auto">{f.icon}</div>
@@ -297,7 +279,7 @@ export default function MagentoPage() {
 
       {/* TECH STACK */}
       <motion.section
-        className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50"
+        className="py-16 bg-gradient-to-r from-orange-50 via-gray-50 to-white"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -332,17 +314,15 @@ export default function MagentoPage() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">
-            Our Magento Development Process
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-10">Our Magento Development Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {process.map((p, i) => (
               <motion.div
                 key={i}
-                className="p-6 rounded-xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow text-center"
+                className="p-6 rounded-xl bg-gradient-to-br from-orange-50 via-gray-50 to-white shadow text-center"
                 variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
               >
-                <CheckCircle2 className="mx-auto w-8 h-8 text-indigo-600" />
+                <CheckCircle2 className="mx-auto w-8 h-8 text-orange-600" />
                 <h4 className="mt-4 font-semibold">{p.step}</h4>
                 <p className="text-sm text-gray-600 mt-2">{p.desc}</p>
               </motion.div>
@@ -352,7 +332,7 @@ export default function MagentoPage() {
       </motion.section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-orange-50 via-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-10">Testimonials</h2>
           <Swiper slidesPerView={1} loop>
@@ -384,27 +364,13 @@ export default function MagentoPage() {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold text-center mb-10">
-          Frequently Asked Questions
-        </h2>
+        <h2 className="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
         <div className="bg-white rounded-2xl shadow divide-y">
           {[
-            {
-              q: "Why choose Magento for eCommerce?",
-              a: "Magento is scalable, flexible, and supports large online businesses.",
-            },
-            {
-              q: "Do you offer Magento migration?",
-              a: "Yes, we migrate from WooCommerce, Shopify, or custom platforms.",
-            },
-            {
-              q: "Can you build Magento extensions?",
-              a: "Yes, we specialize in building custom Magento modules.",
-            },
-            {
-              q: "Do you provide post-launch support?",
-              a: "Yes, we offer ongoing support, updates, and maintenance.",
-            },
+            { q: "Why choose Magento for eCommerce?", a: "Magento is scalable, flexible, and supports large online businesses." },
+            { q: "Do you offer Magento migration?", a: "Yes, we migrate from WooCommerce, Shopify, or custom platforms." },
+            { q: "Can you build Magento extensions?", a: "Yes, we specialize in building custom Magento modules." },
+            { q: "Do you provide post-launch support?", a: "Yes, we offer ongoing support, updates, and maintenance." },
           ].map((f, i) => (
             <details key={i} className="p-4">
               <summary className="cursor-pointer font-medium">{f.q}</summary>

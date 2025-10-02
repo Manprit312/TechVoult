@@ -8,13 +8,11 @@ import {
   ShoppingCart,
   Users,
   CheckCircle2,
-  Briefcase,
-  Trophy,
-  Globe2,
-  MonitorSmartphone,
   Database,
   Code2,
+  MonitorSmartphone,
 } from "lucide-react";
+import Image from "next/image";
 import FAQAccordion from "@/components/Faq";
 
 /* ---------------- Counter ---------------- */
@@ -49,7 +47,18 @@ function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
     return () => io.disconnect();
   }, [end, duration]);
 
-  return <span ref={ref} className={className}>{value}{suffix}</span>;
+  return (
+    <motion.span
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      {value}
+      {suffix}
+    </motion.span>
+  );
 }
 
 /* ---------------- Page ---------------- */
@@ -94,14 +103,14 @@ export default function PrestaShopPage() {
 
   const portfolioSlides = [
     {
-      title: "Matchbox",
-      desc: "Fashion and lifestyle eCommerce with curated collections and modern UI.",
-      img: "[ Portfolio Image ]",
+      title: "PrestaPort",
+      desc: "Modern eCommerce PrestaShop project with scalable features.",
+      img: "/assets/images/prestaport.jpeg",
     },
     {
-      title: "Another PrestaShop Project",
-      desc: "High-performing PrestaShop store with scalable features.",
-      img: "[ Portfolio Image ]",
+      title: "PrestaPort v2",
+      desc: "Next-gen PrestaShop design with optimized performance & UI.",
+      img: "/assets/images/prestaport2.jpeg",
     },
   ];
 
@@ -114,27 +123,38 @@ export default function PrestaShopPage() {
   ];
 
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 mt-16">
+    <main className="bg-gradient-to-br from-purple-50 via-pink-50 to-white text-gray-800 mt-18">
 
       {/* HERO */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-purple-100 to-indigo-100">
+      <motion.section className="py-20 px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-white"
+        initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl font-extrabold">PrestaShop Development Services</h1>
+          <div>
+            <h1 className="text-4xl font-extrabold text-purple-900">PrestaShop Development Services</h1>
             <p className="mt-4 text-gray-700">
               Build scalable, secure, and high-performing PrestaShop stores with expert solutions.
             </p>
-            <div className="mt-6 h-52 bg-gray-200 rounded-xl flex items-center justify-center">[ Hero Image ]</div>
-          </motion.div>
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-xl space-y-4">
+            <motion.div className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
+              initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }} viewport={{ once: true }}>
+              <Image src="/assets/images/prestaport2.jpeg" alt="PrestaShop Hero"
+                width={600} height={400} className="w-full h-full object-cover" />
+            </motion.div>
+          </div>
+          <motion.form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-xl space-y-4"
+            initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }} viewport={{ once: true }}>
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *" className="w-full p-3 border rounded-lg" />
             <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email *" className="w-full p-3 border rounded-lg" />
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your requirements *" rows={4} className="w-full p-3 border rounded-lg"></textarea>
-            <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold">Submit</button>
+            <motion.button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:opacity-95"
+              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              Submit
+            </motion.button>
             {status && <p className="text-sm text-green-600">{status}</p>}
-          </form>
+          </motion.form>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES */}
       <section className="py-16 bg-white">
@@ -142,9 +162,10 @@ export default function PrestaShopPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Our PrestaShop Development Services</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow"
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-                <ShoppingCart className="w-8 h-8 text-indigo-600 mb-3" />
+              <motion.div key={i} className="p-6 bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-xl shadow"
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}>
+                <ShoppingCart className="w-8 h-8 text-pink-600 mb-3" />
                 <h4 className="font-semibold">{s}</h4>
               </motion.div>
             ))}
@@ -169,9 +190,9 @@ export default function PrestaShopPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Features of PrestaShop Development</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow"
+              <motion.div key={i} className="p-6 bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-xl shadow"
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}>
-                <Users className="w-8 h-8 text-indigo-600 mb-3" />
+                <Users className="w-8 h-8 text-purple-600 mb-3" />
                 <h4 className="font-semibold">{f.title}</h4>
                 <p className="text-sm text-gray-600">{f.desc}</p>
               </motion.div>
@@ -181,11 +202,11 @@ export default function PrestaShopPage() {
       </section>
 
       {/* COUNTERS */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 text-center">
+      <section className="py-16 bg-gradient-to-r from-pink-50 via-purple-50 to-white text-center">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-indigo-600" /><p>Years Experience</p></div>
-          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-indigo-600" /><p>Industries Served</p></div>
-          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-indigo-600" /><p>Projects Delivered</p></div>
+          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-purple-600" /><p>Years Experience</p></div>
+          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-purple-600" /><p>Industries Served</p></div>
+          <div><Counter end={2} suffix="+" className="text-4xl font-bold text-purple-600" /><p>Projects Delivered</p></div>
         </div>
       </section>
 
@@ -195,18 +216,21 @@ export default function PrestaShopPage() {
         <Swiper slidesPerView={1.2} spaceBetween={20} breakpoints={{768:{slidesPerView:2},1024:{slidesPerView:3}}}>
           {portfolioSlides.map((slide, i) => (
             <SwiperSlide key={i}>
-              <div className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow">
+              <motion.div className="p-6 bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-xl shadow"
+                initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="h-40 rounded-xl overflow-hidden mb-4">
+                  <Image src={slide.img} alt={slide.title} width={600} height={400} className="w-full h-full object-cover" />
+                </div>
                 <h3 className="font-semibold">{slide.title}</h3>
                 <p className="text-sm text-gray-600 mt-2">{slide.desc}</p>
-                <div className="h-32 bg-gray-200 rounded-xl flex items-center justify-center mt-4">{slide.img}</div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
       </section>
 
       {/* TECH STACK */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-purple-50 via-pink-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-10">Technologies We Use</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
@@ -221,8 +245,7 @@ export default function PrestaShopPage() {
       </section>
 
       {/* FAQ */}
-      <FAQAccordion/>
-
+      <FAQAccordion />
     </main>
   );
 }

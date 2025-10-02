@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -66,9 +66,10 @@ function Counter({ end = 0, duration = 1200, suffix = "%", className = "" }) {
 
 export default function AccountPayableAutomation() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 mt-16">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-slate-100 text-gray-800 mt-16">
+
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
+      <section className="py-20 bg-gradient-to-r from-blue-100 via-indigo-100 to-teal-100">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fade()}>
             <h1 className="text-4xl md:text-5xl font-extrabold">
@@ -78,7 +79,7 @@ export default function AccountPayableAutomation() {
               Save time, cut costs, and transform your invoice processing with
               AI/ML.
             </p>
-            <button className="mt-6 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600">
+            <button className="mt-6 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-700">
               Get a Demo
             </button>
           </motion.div>
@@ -86,7 +87,11 @@ export default function AccountPayableAutomation() {
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
           >
-            [Hero Image]
+            <Image src="/assets/images/accountpayable.jpeg" alt="Account Payable Automation"
+              width={400} height={200} className="w-full h-full object-cover rounded-xl" />
+
+
+
           </motion.div>
         </div>
       </section>
@@ -124,8 +129,9 @@ export default function AccountPayableAutomation() {
           <motion.div
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
-          >
-            [Overview Image]
+          >    <Image src="/assets/images/accountpayable2.jpeg" alt="Account Payable Automation"
+            width={400} height={200} className="w-full h-full object-cover rounded-xl" />
+
           </motion.div>
         </div>
       </section>
@@ -146,7 +152,9 @@ export default function AccountPayableAutomation() {
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
           >
-            [Invoice Image]
+            <Image src="/assets/images/automation.jpeg" alt="Account Payable Automation"
+              width={400} height={200} className="w-full h-full object-cover rounded-xl " />
+
           </motion.div>
         </div>
       </section>

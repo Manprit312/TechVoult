@@ -6,11 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import {
   ShoppingCart,
-  Users,
   CheckCircle2,
-  Briefcase,
-  Trophy,
 } from "lucide-react";
+import Image from "next/image";
 import FAQAccordion from "@/components/Faq";
 
 /* ---------------- Counter ---------------- */
@@ -45,7 +43,10 @@ function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
     return () => io.disconnect();
   }, [end, duration]);
 
-  return <span ref={ref} className={className}>{value}{suffix}</span>;
+  return <motion.span ref={ref} className={className}
+    initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+    {value}{suffix}
+  </motion.span>;
 }
 
 /* ---------------- Page ---------------- */
@@ -66,61 +67,82 @@ export default function Shift4ShopPage() {
   const portfolioSlides = [
     {
       title: "The Snus Life",
-      desc: "The Snus Life offers a diverse range of premium snus products tailored for connoisseurs and enthusiasts.",
+      desc: "Premium snus products tailored for enthusiasts worldwide.",
       features: ["Wide Selection", "User-Friendly Design", "High-Quality Imagery", "Customer Reviews"],
-      img: "Frame105488.webp",
+      img: "/assets/images/thesnuslife.png",
     },
     {
       title: "Matchbox",
       desc: "An e-commerce platform specializing in fashion and lifestyle products with curated collections.",
       features: ["Curated Collections", "User Experience", "Personalized Recommendations"],
-      img: "Frame105487.webp",
+      img: "/assets/images/matchbox.jpeg",
     },
     {
       title: "Resanskrit",
-      desc: "Dedicated to preserving and promoting the Sanskrit language with courses, texts, and forums.",
+      desc: "Dedicated to preserving and promoting Sanskrit with courses, texts, and forums.",
       features: ["Educational Resources", "Interactive Tools", "Community Engagement"],
-      img: "Frame105486.webp",
+      img: "/assets/images/resanskrit.jpeg",
     },
     {
       title: "Smart Link Home",
-      desc: "Specializes in smart home automation with cutting-edge products for comfort and security.",
+      desc: "Smart home automation products ensuring comfort and security.",
       features: ["Innovative Solutions", "Easy Integration", "Customer Support"],
-      img: "Frame1054891.webp",
+      img: "/assets/images/smartlinkhome.jpeg",
+    },
+    {
+      title: "ShipForShop",
+      desc: "Logistics and shipping solutions integrated with eCommerce.",
+      features: ["Seamless Integration", "Real-Time Tracking", "Multi-Carrier Support"],
+      img: "/assets/images/shipforshop.jpeg",
     },
   ];
 
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 mt-16">
+    <main className="bg-gradient-to-br from-blue-50 via-cyan-50 to-white text-gray-800 mt-16">
 
       {/* HERO */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-purple-100 to-indigo-100">
+      <motion.section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-cyan-100 to-white"
+        initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-4xl font-extrabold">Shift4Shop Development Services</h1>
+          <div>
+            <h1 className="text-4xl font-extrabold text-blue-900">Shift4Shop Development Services</h1>
             <p className="mt-4 text-gray-700">
               Build powerful, scalable, and secure Shift4Shop solutions that deliver unmatched online shopping experiences.
             </p>
-            <div className="mt-6 h-52 bg-gray-200 rounded-xl flex items-center justify-center">[ Hero Image ]</div>
-          </motion.div>
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-xl space-y-4">
+            <motion.div className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
+              initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }} viewport={{ once: true }}>
+              <Image src="/assets/images/shipforshop.jpeg" alt="Shift4Shop Development"
+                width={600} height={400} className="w-full h-full object-cover" />
+            </motion.div>
+          </div>
+          <motion.form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow-xl space-y-4"
+            initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }} viewport={{ once: true }}>
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *"
               className="w-full p-3 border rounded-lg" required />
             <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email *"
               className="w-full p-3 border rounded-lg" required />
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your requirements *"
               rows={4} className="w-full p-3 border rounded-lg" required></textarea>
-            <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-95">
+            <motion.button type="submit"
+              className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-95"
+              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               Submit
-            </button>
+            </motion.button>
             {status && <p className="text-sm text-green-700">{status}</p>}
-          </form>
+          </motion.form>
         </div>
-      </section>
+      </motion.section>
 
       {/* OVERVIEW */}
-      <section className="py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        <div className="h-56 bg-gray-200 rounded-xl flex items-center justify-center">[ Overview Image ]</div>
+      <motion.section className="py-16 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }} viewport={{ once: true }}>
+        <motion.div className="h-56 rounded-xl overflow-hidden shadow-lg" whileHover={{ scale: 1.05 }}>
+          <Image src="/assets/images/shipforshopserv.webp" alt="Shift4Shop Overview"
+            width={600} height={400} className="w-full h-full object-cover" />
+        </motion.div>
         <div>
           <h2 className="text-2xl font-bold">Shift4Shop Development Services Overview</h2>
           <p className="mt-4 text-gray-700">
@@ -128,7 +150,7 @@ export default function Shift4ShopPage() {
             Our team specializes in creating custom Shift4Shop stores with integrations, extensions, and support.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES */}
       <section className="py-16 bg-white">
@@ -143,9 +165,10 @@ export default function Shift4ShopPage() {
               "Performance Optimization",
               "Maintenance & Support",
             ].map((service, i) => (
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow"
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <ShoppingCart className="w-8 h-8 text-indigo-600 mb-3" />
+              <motion.div key={i} className="p-6 bg-gradient-to-br from-blue-50 via-cyan-50 to-white rounded-xl shadow"
+                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                <ShoppingCart className="w-8 h-8 text-blue-600 mb-3" />
                 <h4 className="font-semibold">{service}</h4>
               </motion.div>
             ))}
@@ -159,15 +182,17 @@ export default function Shift4ShopPage() {
         <Swiper slidesPerView={1.2} spaceBetween={20} breakpoints={{768:{slidesPerView:2},1024:{slidesPerView:3}}}>
           {portfolioSlides.map((slide, i) => (
             <SwiperSlide key={i}>
-              <motion.div className="p-6 bg-white rounded-xl shadow h-full flex flex-col justify-between"
+              <motion.div className="p-6 bg-white rounded-xl shadow flex flex-col"
                 initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h3 className="text-xl font-bold mb-3">{slide.title}</h3>
-                <p className="text-sm text-gray-600">{slide.desc}</p>
-                <h5 className="mt-4 font-semibold">Features:</h5>
+                <div className="h-40 rounded-xl overflow-hidden mb-4">
+                  <Image src={slide.img} alt={slide.title} width={600} height={400} className="w-full h-full object-cover"/>
+                </div>
+                <h3 className="text-xl font-bold">{slide.title}</h3>
+                <p className="text-sm text-gray-600 mt-2">{slide.desc}</p>
+                <h5 className="mt-3 font-semibold">Features:</h5>
                 <ul className="list-disc list-inside text-sm text-gray-600">
                   {slide.features.map((f, idx) => <li key={idx}>{f}</li>)}
                 </ul>
-                <div className="h-32 mt-4 bg-gray-200 rounded-xl flex items-center justify-center">[ {slide.img} ]</div>
               </motion.div>
             </SwiperSlide>
           ))}
@@ -175,11 +200,11 @@ export default function Shift4ShopPage() {
       </section>
 
       {/* COUNTERS */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-blue-50 via-cyan-50 to-white">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div><Counter end={1} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Year Experience</p></div>
-          <div><Counter end={4} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Industries Served</p></div>
-          <div><Counter end={6} suffix="+" className="text-4xl font-bold text-indigo-600" /><p className="mt-2">Projects Completed</p></div>
+          <div><Counter end={1} suffix="+" className="text-4xl font-bold text-blue-600" /><p className="mt-2">Year Experience</p></div>
+          <div><Counter end={4} suffix="+" className="text-4xl font-bold text-blue-600" /><p className="mt-2">Industries Served</p></div>
+          <div><Counter end={6} suffix="+" className="text-4xl font-bold text-blue-600" /><p className="mt-2">Projects Completed</p></div>
         </div>
       </section>
 
@@ -189,9 +214,9 @@ export default function Shift4ShopPage() {
           <h2 className="text-3xl font-bold text-center mb-10">Our Shift4Shop Development Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {["Consultation","Custom Development","Testing","Launch"].map((step, i)=>(
-              <motion.div key={i} className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-xl shadow text-center"
+              <motion.div key={i} className="p-6 bg-gradient-to-br from-blue-50 via-cyan-50 to-white rounded-xl shadow text-center"
                 initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}}>
-                <CheckCircle2 className="mx-auto w-8 h-8 text-indigo-600"/>
+                <CheckCircle2 className="mx-auto w-8 h-8 text-blue-600"/>
                 <h4 className="mt-4 font-semibold">{step}</h4>
               </motion.div>
             ))}
@@ -200,7 +225,7 @@ export default function Shift4ShopPage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-cyan-50 via-blue-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-10">Testimonials</h2>
           <Swiper slidesPerView={1} loop>
@@ -210,7 +235,10 @@ export default function Shift4ShopPage() {
               "Boosted our online sales with their expertise.",
             ].map((t,i)=>(
               <SwiperSlide key={i}>
-                <div className="p-6 bg-white rounded-xl shadow">{t}</div>
+                <motion.div className="p-6 bg-white rounded-xl shadow"
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                  {t}
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -225,7 +253,7 @@ export default function Shift4ShopPage() {
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *" className="p-3 border rounded-lg"/>
             <input name="email" value={form.email} onChange={handleChange} placeholder="Email *" className="p-3 border rounded-lg"/>
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your Requirements *" className="md:col-span-2 p-3 border rounded-lg h-32"></textarea>
-            <button type="submit" className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90">
+            <button type="submit" className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-90">
               Submit
             </button>
             {status && <p className="text-green-600 text-sm">{status}</p>}
@@ -233,11 +261,8 @@ export default function Shift4ShopPage() {
         </div>
       </section>
 
-      {/* FAQ */}
-
-
       {/* AWARDS */}
-      <section className="py-16 bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-16 bg-gradient-to-r from-blue-50 via-cyan-50 to-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h3 className="text-xl font-bold mb-6">Awards & Recognition</h3>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
@@ -245,7 +270,9 @@ export default function Shift4ShopPage() {
           </div>
         </div>
       </section>
- <FAQAccordion className="mb-10"/>
+
+      {/* FAQ */}
+      <FAQAccordion className="mb-10"/>
     </main>
   );
 }
