@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Lightbulb, Target, ShieldCheck, Users } from "lucide-react";
-
+import { Lightbulb, Target, ShieldCheck, Users,  } from "lucide-react";
+import Link from "next/link";
 export default function AboutPage() {
   return (
     <main className="w-full">
@@ -32,7 +32,7 @@ export default function AboutPage() {
           {/* Mission image */}
           <div className="rounded-2xl overflow-hidden shadow-sm">
             <Image
-              src="/assets/mission.jpg"
+              src="/assets/images/about.jpeg"
               alt="Mission"
               width={600}
               height={400}
@@ -43,7 +43,7 @@ export default function AboutPage() {
           {/* Vision image */}
           <div className="rounded-2xl overflow-hidden shadow-sm">
             <Image
-              src="/assets/vision.jpg"
+             src="/assets/images/vision.jpeg"
               alt="Vision"
               width={600}
               height={400}
@@ -116,13 +116,13 @@ export default function AboutPage() {
             Achieve compliance and create an inclusive digital experience. We’ll help you
             every step of the way.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <a
-              href="#contact"
+          <div className="mt-6 flex items-center justify-center gap-4 mt-10">
+            <Link
+              href="contactUs"
               className="rounded-xl bg-gradient-to-r from-indigo-400 to-pink-400 px-6 py-3 text-sm font-semibold text-white shadow hover:opacity-90"
             >
               Schedule a Meeting
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -131,10 +131,10 @@ export default function AboutPage() {
           {["/assets/team1.jpg","/assets/team2.jpg","/assets/team3.jpg","/assets/team4.jpg"].map((src, i) => (
             <Image
               key={i}
-              src={src}
+              src={"/assets/images/team.jpeg"}
               alt={`Team member ${i+1}`}
-              width={80}
-              height={80}
+              width={100}
+              height={100}
               className="rounded-full border-4 border-white shadow-md"
             />
           ))}

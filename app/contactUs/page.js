@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Mail, Phone, CheckCircle } from "lucide-react";
-
+import Image from "next/image";
 export default function ContactPage() {
   // form state
   const [loading, setLoading] = useState(false);
@@ -174,17 +174,41 @@ export default function ContactPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4"></div>
+              <div className="h-40 bg-gray-200 rounded-lg mb-4">
+                <Image 
+                src="/assets/images/office.jpeg"
+                alt="Noida Office"
+                width={400}
+                height={200}
+                className="h-full w-full object-cover rounded-lg"
+                />
+              </div>
               <p className="text-gray-700">715, Astralis, Supernova, Sector 94 Noida, Delhi NCR India, 201301</p>
             </div>
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4"></div>
+              <div className="h-40 bg-gray-200 rounded-lg mb-4">
+                 <Image 
+                src="/assets/images/office2.jpeg"
+                alt="Noida Office"
+                width={400}
+                height={200}
+                className="h-full w-full object-cover rounded-lg"
+                />
+              </div>
               <p className="text-gray-700">5214f Diamond Heights Blvd, San Francisco, California, USA 94131</p>
             </div>
 
             <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4"></div>
+              <div className="h-40 bg-gray-200 rounded-lg mb-4">
+                 <Image 
+                src="/assets/images/office3.jpeg"
+                alt="Noida Office"
+                width={400}
+                height={200}
+                className="h-full w-full object-cover rounded-lg"
+                />
+              </div>
               <p className="text-gray-700">Unit No: 729, DMCC Business Centre, Level No 1, Jumeirah & Gemplex 3, Dubai, UAE</p>
             </div>
           </div>
@@ -198,11 +222,51 @@ export default function ContactPage() {
           <p className="text-gray-600 mb-8">We are honored to receive recognition for our excellence from leading publications worldwide.</p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            <div className="h-16 w-32 bg-gray-200 rounded-lg"></div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg"></div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg"></div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg"></div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg"></div>
+            <div className="h-16 w-32 bg-gray-200 rounded-lg">
+              <Image 
+                src="/assets/images/award1.jpeg"
+                alt="Clutch"
+                width={128}
+                height={64}
+                className="h-full w-full object-cover p-2"
+              />
+            </div>
+            <div className="h-16 w-32 bg-gray-200 rounded-lg">
+                <Image 
+                src="/assets/images/award2.jpeg"
+                alt="Clutch"
+                width={128}
+                height={64}
+                         className="h-full w-full object-cover p-2"
+              />
+            </div>
+            <div className="h-16 w-32 bg-gray-200 rounded-lg">
+                <Image 
+                src="/assets/images/award3.jpeg"
+                alt="Clutch"
+                width={128}
+                height={64}
+                         className="h-full w-full object-cover p-2"
+              />
+            </div>
+           <div className="h-16 w-32 bg-gray-200 rounded-lg">
+                <Image 
+                src="/assets/images/award4.jpeg"
+                alt="Clutch"
+                width={128}
+                height={64}
+                         className="h-full w-full object-cover p-2"
+              />
+            </div>
+             <div className="h-16 w-32 bg-gray-200 rounded-lg">
+                <Image 
+                src="/assets/images/award1.jpeg"
+                alt="Clutch"
+                width={300}
+                height={104}
+                         className="h-full w-full object-cover p-2"
+              />
+            </div>
           </div>
         </div>
       </section>

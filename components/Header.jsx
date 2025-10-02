@@ -120,18 +120,12 @@ export default function Header() {
     {
       title: "About",
       href: "/aboutUs",
-      dropdown: [
-        { name: "Our Team", href: "#why-choose" },
-        { name: "Our Vision", href: "#why-choose" },
-      ],
+     
     },
     {
       title: "Contact",
       href: "/contactUs",
-      dropdown: [
-        { name: "Email Us", href: "#contact" },
-        { name: "Live Chat", href: "#contact" },
-      ],
+      
     },
   ];
 
