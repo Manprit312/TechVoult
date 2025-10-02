@@ -2,15 +2,16 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-
+import { useRouter } from "next/navigation"; // ✅ import router
 export default function Header() {
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeCategory, setActiveCategory] = useState("Core"); // default category
+  const router = useRouter(); // ✅ use router
+  const [activeMenu, setActiveMenu] = useState("Services");
+  const [activeCategory, setActiveCategory] = useState("Core");
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
 
   const megaMenu = {
-    categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming", ],
+    categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming",],
 
     Core: {
       "Top Services": [
@@ -19,10 +20,10 @@ export default function Header() {
         { name: "Gaming Services", href: "gamedevelopment" },
         { name: "IT Managed Services", href: "ManageItServices" },
         { name: "AI Development", href: "ai-development" },
-        {name:"Social Media Management", href:"social-media"},
-        {name:"Content Writing Services", href:"content-creation"},
-        {name:"Videography Services", href:"videography"},
-        {name:"Photography Services", href:"photography"},
+        { name: "Social Media Management", href: "social-media" },
+        { name: "Content Writing Services", href: "content-creation" },
+        { name: "Videography Services", href: "videography" },
+        { name: "Photography Services", href: "photography" },
       ],
       Ecommerce: [
         { name: "Shopify", href: "shopify" },
@@ -46,13 +47,13 @@ export default function Header() {
         { name: "AI Chatbot", href: "ai-chatbot" },
         { name: "AI & ML Implementation", href: "ai-ml-implementation" },
       ],
-       "Automations": [
+      "Automations": [
         { name: "Account Payable Automations", href: "account-payable-automation" },
       ],
-        "IOT": [
+      "IOT": [
         { name: "IOT Development", href: "iot-development-company" },
       ]
-     
+
     },
 
     Web3: {
@@ -66,24 +67,24 @@ export default function Header() {
         { name: "NFT Token", href: "nft-development" },
         { name: "DeFi Token", href: "defi-development" },
       ],
-         Wallet: [
+      Wallet: [
         { name: "Crypto Wallet", href: "crypto-wallet" },
         { name: "NFT Wallet", href: "nft-wallet" },
         { name: "DeFi Wallet", href: "defi-wallet" },
       ],
-        NFT: [
+      NFT: [
         { name: "Crypto Development", href: "crypto-token-development" },
         { name: "NFT Development", href: "nft-development" },
         { name: "DeFi Development", href: "defi-development" },
       ],
-        Exchange: [
+      Exchange: [
         { name: "White Label Crypto Exchange", href: "white-label-crypto-exchange-development" },
         { name: "Centralized Exchange", href: "centralized-crypto-exchange-development" },
         { name: "DeFi Exchange", href: "defi-exchange-development" },
-      { name: "Crypto Derivatives Exchange", href: "crypto-derivatives-exchange" },  
-      { name: "P2P Crypto Exchange", href: "p2p-crypto-exchage" },  
+        { name: "Crypto Derivatives Exchange", href: "crypto-derivatives-exchange" },
+        { name: "P2P Crypto Exchange", href: "p2p-crypto-exchage" },
 
-      
+
       ],
     },
 
@@ -120,12 +121,12 @@ export default function Header() {
     {
       title: "About",
       href: "/aboutUs",
-     
+
     },
     {
       title: "Contact",
       href: "/contactUs",
-      
+
     },
   ];
 
@@ -142,7 +143,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
-      <div className="container flex items-center justify-between py-4 px-4 md:px-8 mt-5">
+      <div className="container flex items-center justify-between py-4 px-4 md:px-8 mt-4">
         {/* Logo */}
         <Link
           href="/"
@@ -169,11 +170,10 @@ export default function Header() {
                 {menu.title === "Services" && (
                   <ChevronDown
                     size={16}
-                    className={`transition-transform ${
-                      activeMenu === menu.title
+                    className={`transition-transform ${activeMenu === menu.title
                         ? "rotate-180 text-primary"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   />
                 )}
               </Link>
@@ -187,11 +187,10 @@ export default function Header() {
                       <button
                         key={i}
                         onMouseEnter={() => setActiveCategory(cat)}
-                        className={`block w-full text-left px-3 py-2 mt-2 rounded-md text-sm font-medium ${
-                          activeCategory === cat
+                        className={`block w-full text-left px-3 py-2 mt-2 rounded-md text-sm font-medium ${activeCategory === cat
                             ? "bg-gray-900 text-white"
                             : "text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white"
-                        }`}
+                          }`}
                       >
                         {cat}
                       </button>
@@ -260,104 +259,91 @@ export default function Header() {
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
-
       {/* Mobile Nav */}
-      {mobileOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg">
-          <div className="flex flex-col space-y-2 px-6 py-4">
-            {menus.map((menu, idx) => (
-              <div key={idx} className="flex flex-col">
-                <button
-                  onClick={() =>
-                    setActiveMenu(activeMenu === menu.title ? null : menu.title)
-                  }
-                  className="flex justify-between items-center py-2 text-gray-700 font-medium hover:text-primary"
-                >
-                  {menu.title}
-                  {(menu.dropdown || menu.mega) && (
-                    <span className="text-sm">
-                      {activeMenu === menu.title ? "▲" : "▼"}
-                    </span>
-                  )}
-                </button>
+      {/* Mobile Nav */}
+   {mobileOpen && (
+  <div className="md:hidden bg-white border-t shadow-lg">
+    <div className="flex flex-col space-y-2 px-6 py-4">
+      {menus.map((menu, idx) => (
+        <div key={idx} className="flex flex-col">
+          {menu.mega ? (
+            <>
+              <button
+                onClick={() =>
+                  setActiveMenu(activeMenu === menu.title ? null : menu.title)
+                }
+                className="flex justify-between items-center py-2 text-gray-700 font-medium hover:text-primary"
+              >
+                {menu.title}
+                <span className="text-sm">
+                  {activeMenu === menu.title ? "▲" : "▼"}
+                </span>
+              </button>
 
-                {/* Mega Services Accordion */}
-                {menu.mega && activeMenu === "Services" && (
-                  <div className="pl-4 space-y-2 mt-2 border-l border-gray-200">
-                    {megaMenu.categories.map((cat, i) => (
-                      <div key={i} className="flex flex-col">
-                        <button
-                          onClick={() =>
-                            setActiveCategory(
-                              activeCategory === cat ? null : cat
-                            )
-                          }
-                          className="flex justify-between items-center py-2 text-sm font-medium text-gray-800 hover:text-primary"
-                        >
-                          {cat}
-                          <span className="text-xs">
-                            {activeCategory === cat ? "▲" : "▼"}
-                          </span>
-                        </button>
+              {/* Mega Services - Always Open Categories */}
+              {activeMenu === "Services" && (
+                <div className="pl-4 mt-2 border-l border-gray-200 max-h-[400px] overflow-y-auto">
+                  {megaMenu.categories.map((cat, i) => (
+                    <div key={i} className="flex flex-col mb-4">
+                      <p className="font-semibold text-gray-800 mb-2">{cat}</p>
 
-                        {/* Submenu (groups) */}
-                        {activeCategory === cat && (
-                          <div className="pl-4 space-y-3 text-sm text-gray-600">
-                            {Object.entries(megaMenu[cat] || {}).map(
-                              ([group, links], idx) => (
-                                <div key={idx}>
-                                  <p className="font-semibold text-gray-800 mb-1">
-                                    {group}
-                                  </p>
-                                  {links.map((srv, i) => (
-                                    <Link
-                                      key={i}
-                                      href={srv.href}
-                                   
-                                      className="block py-1 hover:text-primary"
-                                    >
-                                      {srv.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              )
-                            )}
+                      {/* Render groups inside each category */}
+                      {Object.entries(megaMenu[cat] || {}).map(
+                        ([group, links], idx) => (
+                          <div key={idx} className="mb-3">
+                            <p className="font-medium text-gray-700 mb-1">{group}</p>
+                            {links.map((srv) => (
+                              <button
+                                key={idx}
+                                onMouseEnter={(e) => {
+                                  e.stopPropagation();
+                                  console.log("Clicked service:", srv);
+                                  setMobileOpen(false);
+                                  setActiveMenu(null);
+                                  router.push(srv.href);
+                                }}
+                                className="block py-1 text-left hover:text-primary w-full text-sm"
+                              >
+                                {srv.name}
+                              </button>
+                            ))}
                           </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Normal Dropdown */}
-                {menu.dropdown && activeMenu === menu.title && (
-                  <div className="pl-4 space-y-1">
-                    {menu.dropdown.map((item, i) => (
-                      <Link
-                        key={i}
-                        href={item.href}
-                        className="block py-1 text-sm text-gray-600 hover:text-primary"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-
-            {/* CTA */}
-            <a
-              href="#contact"
-              className="mt-4 text-center px-5 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow hover:opacity-90 transition"
-              onClick={() => setMobileOpen(false)}
+                        )
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <Link
+              href={menu.href}
+              className="py-2 text-gray-700 font-medium hover:text-primary"
+              onClick={() => {
+                setMobileOpen(false);
+                setActiveMenu(null);
+              }}
             >
-              Get Started
-            </a>
-          </div>
+              {menu.title}
+            </Link>
+          )}
         </div>
-      )}
+      ))}
+
+      {/* CTA */}
+      <Link
+        href="/contactUs"
+        className="mt-4 text-center px-5 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow hover:opacity-90 transition"
+        onClick={() => {
+          setMobileOpen(false);
+          setActiveMenu(null);
+        }}
+      >
+        Get Started
+      </Link>
+    </div>
+  </div>
+)}
     </header>
   );
 }
