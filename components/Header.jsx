@@ -142,7 +142,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
-      <div className="container flex items-center justify-between py-4 px-4 md:px-8">
+      <div className="container flex items-center justify-between py-4 px-4 md:px-8 mt-5">
         {/* Logo */}
         <Link
           href="/"
@@ -313,7 +313,7 @@ export default function Header() {
                                     <Link
                                       key={i}
                                       href={srv.href}
-                                      onClick={() => setMobileOpen(false)}
+                                   
                                       className="block py-1 hover:text-primary"
                                     >
                                       {srv.name}

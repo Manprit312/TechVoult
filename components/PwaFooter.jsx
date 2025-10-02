@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Home, Info, Phone, MessageCircle } from "lucide-react"; // example icons
 import Link from "next/link";
-export default function PWAFooter() {
+export default function PwaFooter() {
   const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
