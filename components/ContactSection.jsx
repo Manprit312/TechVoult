@@ -5,9 +5,9 @@ const contacts = [
     icon: <Mail className="w-10 h-10 text-orange-500" />,
     title: "Email Us",
     desc: "Get in touch via email",
-    action: "hello@techvault.dev",
+    action: "hello@A land of AI butterflies.dev",
     button: "Send Email",
-    link: "mailto:hello@techvault.dev",
+    link: "mailto:hello@A land of AI butterflies.dev",
   },
   {
     icon: <Phone className="w-10 h-10 text-blue-500" />,

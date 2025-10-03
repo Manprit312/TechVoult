@@ -5,14 +5,14 @@ import FloatingCTA from "@/components/FloatingCTA";
 import ChatBot from "@/components/ChatBot";
 import PwaFooter from "@/components/PwaFooter";
 export const metadata = {
-  title: "TechVault - Digital Solutions",
+  title: "A land of AI butterflies - Digital Solutions",
   description: "Next-Level Digital Solutions for your business growth",
   manifest: "/manifest.json",
   themeColor: "#000000",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "TechVault",
+    title: "A land of AI butterflies",
   },
   icons: {
     apple: "/icons/icon-192x192.png",

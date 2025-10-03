@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-4">
-            Tech<span className="text-orange-500">Vault</span>
+            A land of<span className="text-orange-500"> AI butterflies</span>
           </h3>
           <p className="text-gray-400 text-sm leading-relaxed mb-4">
             Transforming businesses through innovative digital solutions 
@@ -59,7 +59,7 @@ export default function Footer() {
 
       {/* Bottom */}
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        © 2025 TechVault. All rights reserved. | 
+        © 2025 A land of AI butterflies. All rights reserved. | 
         <Link href="/privacy" className="ml-2 hover:text-white">Privacy Policy</Link> | 
         <Link href="/terms" className="ml-2 hover:text-white">Terms of Service</Link>
       </div>

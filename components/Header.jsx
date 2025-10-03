@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation"; // ✅ import router
+import Image from "next/image";
 export default function Header() {
   const router = useRouter(); // ✅ use router
   const [activeMenu, setActiveMenu] = useState("Services");
@@ -147,9 +148,11 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+          className=" bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
         >
-          TechVault
+          
+          <Image src="/logo.png" alt="TechVoult Logo" width={150} height={50} />
+          {/* A land of AI butterflies */}
         </Link>
 
         {/* Desktop Nav */}
