@@ -4,7 +4,7 @@ import ServicePage from "@/components/ServicePage";
 export default function ContentCreationPage() {
   return (
     <ServicePage
-      serviveImage={"/assets/images/contenthero.jpeg"}
+      serviveImage={"/assets/images/contenthero.png"}
       title="Content Creation"
       subtitle="Engage your audience with high-quality blogs, graphics, and copy designed to boost visibility and conversions."
       stats={[
@@ -12,11 +12,11 @@ export default function ContentCreationPage() {
         { value: "200+", label: "Graphics Designed" },
       ]}
       services={[
-        { name: "Blog Writing", src: "/assets/images/blogwriting.jpeg" },
-        { name: "SEO Content", src: "/assets/images/seocontent.jpeg" },
-        { name: "Graphic Design", src: "/assets/images/graphicdesign.jpeg" },
-        { name: "Copywriting", src: "/assets/images/copywriting.jpeg" },
-        { name: "E-Books & Whitepapers", src: "/assets/images/ebook.jpeg" },
+        { name: "Blog Writing", src: "/assets/images/blogwriting.png" },
+        { name: "SEO Content", src: "/assets/images/seocontent.png" },
+        { name: "Graphic Design", src: "/assets/images/graphicdesign.png" },
+        { name: "Copywriting", src: "/assets/images/copywriting.png" },
+        { name: "E-Books & Whitepapers", src: "/assets/images/ebook.png" },
 
 
 
@@ -27,9 +27,9 @@ export default function ContentCreationPage() {
         "Brand-Oriented Design",
       ]}
       portfolio={[
-        {name: "Tech Blog Series", src: "/assets/images/contentport1.jpeg"},
-        {name: "E-commerce Product Descriptions", src: "/assets/images/contentport2.jpeg"},
-        {name: "Business Infographics", src: "/assets/images/contentport3.jpeg"},
+        {name: "Tech Blog Series", src: "/assets/images/contentport1.png"},
+        {name: "E-commerce Product Descriptions", src: "/assets/images/contentport2.png"},
+        {name: "Business Infographics", src: "/assets/images/contentport3.png"},
       
       ]}
       faqs={[
