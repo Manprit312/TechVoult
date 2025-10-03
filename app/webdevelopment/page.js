@@ -140,7 +140,7 @@ export default function WebDevelopmentPage() {
             solutions, blockchain platforms, and custom applications.
           </p>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
+            {[`/assets/images/portfolio1.png`, `/assets/images/portfolio2.png`, `/assets/images/portfolio3.png`].map((i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 50 }}
@@ -149,7 +149,7 @@ export default function WebDevelopmentPage() {
                 className="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
               >
                 <Image
-                  src={`/assets/images/portfolio.webp`}
+                  src={i}
                   alt={`Portfolio ${i}`}
                   width={400}
                   height={300}

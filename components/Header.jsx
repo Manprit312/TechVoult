@@ -146,15 +146,28 @@ export default function Header() {
     <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
       <div className="container flex items-center justify-between mt-4">
         {/* Logo */}
-        <Link
-          href="/"
-          className=" bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-        >
-          
-          <Image src="/logo.png" alt="TechVoult Logo" width={220} height={100} className="px-3" />
-          {/* A land of AI butterflies */}
-        </Link>
+       <Link href="/" className="flex items-center space-x-3">
+      {/* Logo Image */}
+      <Image
+        src="/logo.png"
+        alt="TechVoult Logo"
+        width={70}
+        height={70}
+        className="pl-2"
+      />
 
+      {/* Text Wrapper */}
+      <div className="flex flex-col leading-tight">
+        {/* Brand Name */}
+        <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Parwanix
+        </span>
+        {/* Tagline */}
+        <span className="text-sm text-gray-500">
+          A land of AI butterflies
+        </span>
+      </div>
+    </Link>
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8 relative" ref={menuRef}>
           {menus.map((menu, idx) => (
