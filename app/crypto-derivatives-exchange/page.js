@@ -107,7 +107,7 @@ export default function CryptoDerivativesExchange() {
           </p>
         </motion.div>
         <motion.img
-          src="/crypto-derivatives.png"
+          src="/assets/images/cryptoderivative.jpeg"
           alt="overview"
           className="rounded-lg shadow-lg"
           initial={{ opacity: 0, scale: 0.9 }}

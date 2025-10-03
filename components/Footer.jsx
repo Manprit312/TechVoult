@@ -27,10 +27,10 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Services</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/services">Web Development</Link></li>
-            <li><Link href="/services">App Development</Link></li>
-            <li><Link href="/services">Blockchain</Link></li>
-            <li><Link href="/services">Game Development</Link></li>
+            <li><Link href="/webdevelopment">Web Development</Link></li>
+            <li><Link href="/mobiledevelopment">App Development</Link></li>
+            <li><Link href="/web3development">Blockchain</Link></li>
+            <li><Link href="/gamedevelopment">Game Development</Link></li>
           </ul>
         </div>
 
@@ -38,10 +38,10 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Solutions</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/services">Digital Marketing</Link></li>
-            <li><Link href="/services">SEO Services</Link></li>
-            <li><Link href="/services">Advertisement</Link></li>
-            <li><Link href="/services">AI Solutions</Link></li>
+            <li><Link href="/social-media">Digital Marketing</Link></li>
+            <li><Link href="/social-media">SEO Services</Link></li>
+            <li><Link href="/social-media">Advertisement</Link></li>
+            <li><Link href="/ai-development">AI Solutions</Link></li>
           </ul>
         </div>
 
@@ -49,10 +49,10 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4">Company</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/portfolio">Portfolio</Link></li>
-            <li><Link href="/careers">Careers</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/aboutUs">About Us</Link></li>
+            {/* <li><Link href="/portfolio">Portfolio</Link></li> */}
+            {/* <li><Link href="/careers">Careers</Link></li> */}
+            <li><Link href="/contactUs">Contact</Link></li>
           </ul>
         </div>
       </div>

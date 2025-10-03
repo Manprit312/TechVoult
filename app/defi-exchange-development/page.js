@@ -1,16 +1,13 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
-  BarChart,
   ShieldCheck,
   Wallet,
   Cpu,
   Star,
-  Users,
   CheckCircle2,
-  Globe,
 } from "lucide-react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -52,7 +49,7 @@ function Counter({ end, suffix = "+", duration = 2000 }) {
   }, [end, duration]);
 
   return (
-    <span ref={ref} className="text-4xl font-extrabold text-indigo-700">
+    <span ref={ref} className="text-4xl font-extrabold text-cyan-400">
       {val}
       {suffix}
     </span>
@@ -68,65 +65,73 @@ const fadeUp = (delay = 0) => ({
 
 export default function DefiExchangePage() {
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 text-gray-800">
+    <main className="bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#9333ea] text-gray-100">
       {/* Hero */}
-      <section className="relative pt-28 pb-16">
+      <section className="relative pt-28 pb-16 bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#06b6d4]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fadeUp(0)}>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">
               DeFi Exchange Development Company
             </h1>
-            <p className="mt-4 text-gray-700">
+            <p className="mt-4 text-gray-200">
               We build secure, scalable, and customizable DeFi exchanges for
               decentralized trading across multiple blockchain ecosystems.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-white shadow p-5 text-center">
+              <div className="rounded-xl bg-white/10 border border-white/20 shadow p-5 text-center">
                 <Counter end={500} suffix="+" />
-                <div className="text-sm text-gray-500">Projects Delivered</div>
+                <div className="text-sm text-gray-300">Projects Delivered</div>
               </div>
-              <div className="rounded-xl bg-white shadow p-5 text-center">
+              <div className="rounded-xl bg-white/10 border border-white/20 shadow p-5 text-center">
                 <Counter end={100} suffix="+" />
-                <div className="text-sm text-gray-500">Happy Clients</div>
+                <div className="text-sm text-gray-300">Happy Clients</div>
               </div>
             </div>
           </motion.div>
 
           <motion.div
             {...fadeUp(0.2)}
-            className="h-64 bg-white/80 rounded-2xl border shadow flex items-center justify-center"
+            className="h-64 rounded-2xl overflow-hidden shadow-xl relative"
           >
-            <span className="text-gray-400">[Hero Image Here]</span>
+            <Image
+              src="/assets/images/defiwallethero.jpeg"
+              alt="DeFi Exchange"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
       </section>
 
       {/* Overview */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-black/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fadeUp(0)}>
-            <h2 className="text-3xl font-bold mb-4">
-              Overview of DeFi Exchange Development Company
+            <h2 className="text-3xl font-bold mb-4 text-white">
+              Overview of DeFi Exchange Development
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-300">
               Our DeFi exchange development solutions empower startups,
               enterprises, and blockchain innovators with high-security
               decentralized trading platforms.
             </p>
           </motion.div>
-          <motion.div {...fadeUp(0.2)}>
-            <div className="h-52 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
-              <span className="text-gray-500">[Overview Image]</span>
-            </div>
+          <motion.div {...fadeUp(0.2)} className="h-52 relative rounded-xl overflow-hidden">
+            <Image
+              src="/assets/images/defi-exchange2.jpeg"
+              alt="DeFi Exchange"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-14">
+      <section className="py-14 bg-black/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center">
+          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center text-white">
             Our DeFi Exchange Development Services
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-6 mt-10">
@@ -150,13 +155,13 @@ export default function DefiExchangePage() {
               <motion.div
                 key={i}
                 {...fadeUp(i * 0.1)}
-                className="rounded-2xl p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow border"
+                className="rounded-2xl p-6 bg-white/10 border border-white/20 shadow text-white hover:bg-white/20 transition"
               >
-                <div className="p-3 rounded-xl bg-white shadow inline-flex text-indigo-600">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 inline-flex">
                   {s.icon}
                 </div>
                 <h3 className="mt-4 font-semibold">{s.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{s.desc}</p>
+                <p className="text-sm text-gray-300 mt-2">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -164,9 +169,9 @@ export default function DefiExchangePage() {
       </section>
 
       {/* Portfolio Slider */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-black/30">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">
+          <h2 className="text-3xl font-bold text-center mb-10 text-white">
             Our DeFi Exchange Portfolio
           </h2>
           <Swiper
@@ -177,136 +182,46 @@ export default function DefiExchangePage() {
             slidesPerView={1}
             breakpoints={{ 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
           >
-            {["SushiSwap Clone", "Uniswap Clone", "Custom DEX"].map(
-              (project, i) => (
-                <SwiperSlide key={i}>
-                  <div className="rounded-xl p-6 border shadow bg-gradient-to-r from-white to-indigo-50">
-                    <h4 className="font-semibold">{project}</h4>
-                    <p className="text-sm text-gray-600 mt-2">
-                      Enterprise-grade DeFi exchange platforms.
-                    </p>
+            {[
+              { img: "/assets/images/crosschainwallet.jpeg", title: "CrossChain Wallet" },
+              { img: "/assets/images/privatedefi.jpeg", title: "Private DeFi Wallet" },
+              { img: "/assets/images/custodianwallet.jpeg", title: "Custodian Wallet" },
+            ].map((p, i) => (
+              <SwiperSlide key={i}>
+                <div className="rounded-xl overflow-hidden relative h-48 shadow-lg border border-white/20">
+                  <Image src={p.img} alt={p.title} fill className="object-cover" />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-3 text-white">
+                    <h4 className="font-semibold">{p.title}</h4>
                   </div>
-                </SwiperSlide>
-              )
-            )}
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-14">
+      <section className="py-14 bg-black/40">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-6 text-white">
             Why Choose Us for DeFi Exchange Development?
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              "Blockchain Expertise",
-              "Customizable Solutions",
-              "Robust Smart Contracts",
-            ].map((reason, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.1)}
-                className="p-6 rounded-xl shadow bg-gradient-to-br from-blue-50 to-purple-50"
-              >
-                <h4 className="font-semibold">{reason}</h4>
-                <p className="text-sm text-gray-600 mt-2">
-                  We deliver enterprise-grade decentralized exchange platforms.
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="py-14 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center">
-            Our DeFi Exchange Development Process
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-6 mt-10">
-            {[
-              "Requirement Gathering",
-              "UI/UX Design",
-              "Smart Contract Integration",
-              "Security Implementation",
-              "Testing & Deployment",
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.1)}
-                className="rounded-xl bg-white p-6 border shadow text-center"
-              >
-                <h4 className="font-semibold">{step}</h4>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-14">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">Testimonials</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {["Prakash Verma", "Sahil Tanwar", "Hamza Al Lawati"].map(
-              (name, i) => (
+            {["Blockchain Expertise", "Customizable Solutions", "Robust Smart Contracts"].map(
+              (reason, i) => (
                 <motion.div
                   key={i}
                   {...fadeUp(i * 0.1)}
-                  className="rounded-2xl p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow"
+                  className="p-6 rounded-xl shadow bg-white/10 border border-white/20 text-white hover:bg-white/20 transition"
                 >
-                  <div className="font-semibold">{name}</div>
-                  <p className="text-sm text-gray-600 mt-2">
-                    “Excellent work on our DeFi exchange project.”
+                  <h4 className="font-semibold">{reason}</h4>
+                  <p className="text-sm text-gray-300 mt-2">
+                    We deliver enterprise-grade decentralized exchange platforms.
                   </p>
-                  <div className="flex gap-1 mt-2 text-indigo-600">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
                 </motion.div>
               )
             )}
           </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section className="py-14 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">Contact Us</h2>
-          <form className="mt-8 grid gap-4 md:grid-cols-2 bg-gradient-to-br from-indigo-50 to-purple-50 border shadow rounded-2xl p-6">
-            <input placeholder="Full Name *" className="p-3 border rounded-lg" />
-            <input type="email" placeholder="Email *" className="p-3 border rounded-lg" />
-            <input placeholder="Company" className="p-3 border rounded-lg" />
-            <input placeholder="Phone" className="p-3 border rounded-lg" />
-            <textarea
-              placeholder="Your requirements *"
-              className="md:col-span-2 p-3 border rounded-lg h-28"
-            />
-            <button className="md:col-span-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold">
-              Submit
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* Awards */}
-      <section className="py-10 text-center">
-        <h2 className="text-2xl font-bold mb-6">Awards & Recognition</h2>
-        <div className="flex justify-center gap-6 flex-wrap">
-          {["Clutch", "GoodFirms", "TopDev", "AppFutura"].map((award, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(i * 0.1)}
-              className="p-3 rounded-xl bg-white shadow"
-            >
-              {award}
-            </motion.div>
-          ))}
         </div>
       </section>
     </main>

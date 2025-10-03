@@ -117,7 +117,7 @@ export default function Header() {
   };
 
   const menus = [
-    { title: "Services", href: "#services", mega: true },
+    { title: "Services", href: "", mega: true },
     {
       title: "About",
       href: "/aboutUs",
@@ -291,7 +291,9 @@ export default function Header() {
                       {Object.entries(megaMenu[cat] || {}).map(
                         ([group, links], idx) => (
                           <div key={idx} className="mb-3">
-                            <p className="font-medium text-gray-700 mb-1">{group}</p>
+                          <h4 className="font-semibold text-gray-900 mb-2">
+                            {group}
+                          </h4>
                             {links.map((srv) => (
                               <button
                                 key={idx}

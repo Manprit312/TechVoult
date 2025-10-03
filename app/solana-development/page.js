@@ -2,16 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   ShieldCheck,
-  Layers,
-  Cpu,
-  BarChart3,
-  Database,
   CheckCircle2,
   UserCheck,
-  Lock,
-  TrendingUp,
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -65,41 +60,46 @@ function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
 
 export default function SolanaBlockchain() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800 mt-16">
+    <main className="min-h-screen bg-gradient-to-br from-[#0F0C29] via-[#302B63] to-[#24243E] text-gray-100 mt-18">
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
+      <section className="py-20 bg-gradient-to-r from-[#9945FF] via-[#14F195] to-[#00FFA3]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fade()}>
-            <h1 className="text-4xl md:text-5xl font-extrabold">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white">
               Solana Blockchain Development Company
             </h1>
-            <p className="mt-4 text-gray-700">
+            <p className="mt-4 text-gray-100">
               Build high-performance, scalable blockchain apps with Solana’s lightning-fast and secure ecosystem.
             </p>
             <div className="flex gap-8 mt-6">
               <div className="text-center">
-                <Counter end={500} suffix="+" className="text-3xl font-bold text-indigo-600" />
+                <Counter end={500} suffix="+" className="text-3xl font-bold text-white" />
                 <p className="text-sm">Projects Delivered</p>
               </div>
               <div className="text-center">
-                <Counter end={100} suffix="M+" className="text-3xl font-bold text-indigo-600" />
+                <Counter end={100} suffix="M+" className="text-3xl font-bold text-white" />
                 <p className="text-sm">Active Users</p>
               </div>
             </div>
           </motion.div>
-          <motion.div
-            {...fade(0.1)}
-            className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
-          >
-            [Hero Image]
-          </motion.div>
+         <motion.div
+  {...fade(0.1)}
+  className="h-72 w-full rounded-xl overflow-hidden relative shadow-xl"
+>
+  <Image
+    src="/assets/images/solana.jpeg"
+    alt="Solana Development"
+    fill
+    className="object-cover"
+  />
+</motion.div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-black/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fade()} className="text-3xl font-bold text-center">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
             Our Solana Blockchain Development Services
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
@@ -114,11 +114,11 @@ export default function SolanaBlockchain() {
               <motion.div
                 key={i}
                 {...fade(i * 0.1)}
-                className="bg-white shadow-md rounded-2xl p-6"
+                className="bg-white/10 border border-white/20 rounded-2xl p-6 shadow-md hover:bg-white/20 transition"
               >
-                <CheckCircle2 className="h-6 w-6 text-indigo-600 mb-2" />
-                <h4 className="font-semibold">{s}</h4>
-                <p className="text-sm text-gray-600">
+                <CheckCircle2 className="h-6 w-6 text-[#14F195] mb-2" />
+                <h4 className="font-semibold text-white">{s}</h4>
+                <p className="text-sm text-gray-300">
                   We provide expert {s.toLowerCase()} solutions on Solana.
                 </p>
               </motion.div>
@@ -128,9 +128,9 @@ export default function SolanaBlockchain() {
       </section>
 
       {/* BENEFITS */}
-      <section className="py-16 bg-white/70">
+      <section className="py-16 bg-black/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fade()} className="text-3xl font-bold text-center">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
             Benefits of Solana Blockchain Development
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
@@ -142,11 +142,11 @@ export default function SolanaBlockchain() {
               <motion.div
                 key={i}
                 {...fade(i * 0.1)}
-                className="bg-gray-50 rounded-xl shadow p-6"
+                className="bg-white/10 border border-white/20 rounded-xl shadow p-6"
               >
-                <ShieldCheck className="h-6 w-6 text-indigo-600 mb-2" />
-                <h4 className="font-semibold">{b.title}</h4>
-                <p className="text-sm text-gray-600">{b.text}</p>
+                <ShieldCheck className="h-6 w-6 text-[#00FFA3] mb-2" />
+                <h4 className="font-semibold text-white">{b.title}</h4>
+                <p className="text-sm text-gray-300">{b.text}</p>
               </motion.div>
             ))}
           </div>
@@ -154,9 +154,9 @@ export default function SolanaBlockchain() {
       </section>
 
       {/* TECH STACK */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-black/30">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <motion.h2 {...fade()} className="text-3xl font-bold">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-white">
             Blockchain Platforms We Support
           </motion.h2>
           <div className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-6">
@@ -164,7 +164,7 @@ export default function SolanaBlockchain() {
               <motion.div
                 key={i}
                 {...fade(i * 0.1)}
-                className="bg-white rounded-xl shadow-md p-6"
+                className="bg-white/10 border border-white/20 rounded-xl shadow-md p-6 text-white hover:bg-white/20 transition"
               >
                 {tech}
               </motion.div>
@@ -174,9 +174,9 @@ export default function SolanaBlockchain() {
       </section>
 
       {/* TESTIMONIALS SLIDER */}
-      <section className="py-16 bg-white/70">
+      <section className="py-16 bg-black/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fade()} className="text-3xl font-bold text-center">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
             Testimonials
           </motion.h2>
           <Swiper spaceBetween={20} slidesPerView={1} breakpoints={{ 768: { slidesPerView: 3 }}} className="mt-10">
@@ -186,11 +186,11 @@ export default function SolanaBlockchain() {
               { name: "Hameed Al Lawati", role: "Business Head", text: "Reliable Solana developers for enterprise blockchain apps." },
             ].map((t, i) => (
               <SwiperSlide key={i}>
-                <motion.div {...fade(i * 0.1)} className="bg-white rounded-xl shadow-md p-6">
-                  <UserCheck className="h-7 w-7 text-indigo-600" />
-                  <p className="italic text-gray-700">“{t.text}”</p>
-                  <p className="mt-4 font-semibold">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.role}</p>
+                <motion.div {...fade(i * 0.1)} className="bg-white/10 border border-white/20 rounded-xl shadow-md p-6">
+                  <UserCheck className="h-7 w-7 text-[#9945FF]" />
+                  <p className="italic text-gray-200">“{t.text}”</p>
+                  <p className="mt-4 font-semibold text-white">{t.name}</p>
+                  <p className="text-xs text-gray-400">{t.role}</p>
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -199,18 +199,18 @@ export default function SolanaBlockchain() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contact" className="py-16 bg-white/80">
+      <section id="contact" className="py-16 bg-black/30">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.h3 {...fade()} className="text-2xl font-bold text-center">
+          <motion.h3 {...fade()} className="text-2xl font-bold text-center text-white">
             Let’s Talk About Your Project
           </motion.h3>
-          <form className="mt-6 grid gap-4 md:grid-cols-2 bg-white p-6 rounded-2xl shadow-md">
-            <input className="border px-3 py-2 rounded-lg" placeholder="Full Name *" />
-            <input className="border px-3 py-2 rounded-lg" placeholder="Email *" type="email" />
-            <input className="border px-3 py-2 rounded-lg" placeholder="Company" />
-            <input className="border px-3 py-2 rounded-lg" placeholder="Phone" />
-            <textarea className="md:col-span-2 border px-3 py-2 h-28 rounded-lg" placeholder="Your requirements *" />
-            <button className="md:col-span-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg">
+          <form className="mt-6 grid gap-4 md:grid-cols-2 bg-white/10 border border-white/20 p-6 rounded-2xl shadow-md">
+            <input className="border px-3 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300" placeholder="Full Name *" />
+            <input className="border px-3 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300" placeholder="Email *" type="email" />
+            <input className="border px-3 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300" placeholder="Company" />
+            <input className="border px-3 py-2 rounded-lg bg-white/20 text-white placeholder-gray-300" placeholder="Phone" />
+            <textarea className="md:col-span-2 border px-3 py-2 h-28 rounded-lg bg-white/20 text-white placeholder-gray-300" placeholder="Your requirements *" />
+            <button className="md:col-span-2 bg-gradient-to-r from-[#9945FF] via-[#14F195] to-[#00FFA3] text-white px-6 py-3 rounded-lg">
               Submit
             </button>
           </form>

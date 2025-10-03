@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -185,16 +185,16 @@ export default function NFTWalletPage() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800">
+<main className="bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#6D28D9] text-gray-500 mt-18">
       {/* HERO */}
-      <section className="relative pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-          <motion.div {...fadeUp(0)}>
+    <section className="relative pt-24 pb-16 bg-gradient-to-r from-[#6D28D9] via-[#9333EA] to-[#EC4899] text-white">
+    <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <motion.div {...fadeUp(0)}>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
               {HERO.title}
             </h1>
-            <p className="mt-4 text-gray-700">{HERO.subtitle}</p>
-            <ul className="mt-5 space-y-2 text-sm text-gray-700">
+            <p className="mt-4 ">{HERO.subtitle}</p>
+            <ul className="mt-5 space-y-2 text-sm ">
               {HERO.bullets.map((b, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-indigo-600" />
@@ -231,10 +231,12 @@ export default function NFTWalletPage() {
           {/* Hero visual placeholder */}
           <motion.div
             {...fadeUp(0.1)}
-            className="h-56 md:h-72 rounded-2xl bg-white/70 border border-gray-100 shadow-inner flex items-center justify-center"
+            className=" rounded-xl  shadow-inner flex items-center justify-center"
           >
             {/* Replace this box with your hero image */}
-            <span className="text-gray-400">[ Hero Image / Illustration ]</span>
+            <span className="text-gray-400">
+              <Image src="/assets/images/nftwalletweb.jpeg" alt="NFT Wallet"  className="rounded-xl"  height={100} width={700}/>
+            </span>
           </motion.div>
         </div>
       </section>
@@ -243,8 +245,9 @@ export default function NFTWalletPage() {
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fadeUp(0)}>
-            <div className="h-48 rounded-2xl bg-white border border-gray-100 shadow-inner flex items-center justify-center">
-              <span className="text-gray-400">[ Overview Image ]</span>
+            <div className=" rounded-2xl shadow-inner flex items-center justify-center">
+              <span className="text-gray-400">              <Image src="/assets/images/nftoverview.jpeg" alt="NFT Wallet"  className="rounded-xl"  height={250} width={700}/>
+</span>
             </div>
           </motion.div>
           <motion.div {...fadeUp(0.1)}>
@@ -424,7 +427,7 @@ export default function NFTWalletPage() {
       </section>
 
       {/* Portfolio / Slider block (add your slides like screenshot) */}
-      <section className="py-12 bg-white/70">
+      {/* <section className="py-12 bg-white/70">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h3
             {...fadeUp(0)}
@@ -448,7 +451,7 @@ export default function NFTWalletPage() {
                   </div>
                   <h4 className="mt-4 font-semibold">Project {n}</h4>
                   <p className="text-sm text-gray-600 mt-1">
-                    {/* TODO: paste exact short case description */}
+                
                     A brief outcome-focused description goes here.
                   </p>
                 </div>
@@ -456,7 +459,7 @@ export default function NFTWalletPage() {
             ))}
           </Swiper>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials */}
       <section className="py-12 bg-white">

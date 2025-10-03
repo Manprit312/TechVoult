@@ -13,6 +13,7 @@ import {
   Star,
 } from "lucide-react";
 
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -56,7 +57,7 @@ function Counter({ end = 0, suffix = "+", duration = 1500, className }) {
   );
 }
 
-/* ---------------- Data copied from screenshot ---------------- */
+/* ---------------- Data ---------------- */
 const HERO = {
   title: "DeFi Wallet Development Company",
   subtitle:
@@ -108,14 +109,17 @@ const PORTFOLIO = [
   {
     title: "CrossChain Wallet",
     desc: "A secure cross-chain wallet supporting multiple DeFi protocols.",
+    img: "/assets/images/crosschainwallet.jpeg",
   },
   {
     title: "Private DeFi Wallet",
     desc: "Built with advanced privacy and compliance features.",
+    img: "/assets/images/privatedefi.jpeg",
   },
   {
     title: "Custodian Wallet",
     desc: "A managed wallet service for enterprises and institutions.",
+    img: "/assets/images/custodianwallet.jpeg",
   },
 ];
 
@@ -130,36 +134,36 @@ const fadeUp = (delay = 0) => ({
 /* ------------------- Component ------------------- */
 export default function DeFiWalletPage() {
   return (
-    <main className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 text-gray-800">
+    <main className="bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#06b6d4] text-gray-100 mt-18">
       {/* Hero */}
-      <section className="relative pt-28 pb-16">
+      <section className="relative pt-28 pb-16 bg-gradient-to-r from-[#1e3a8a] via-[#2563eb] to-[#06b6d4] text-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fadeUp(0)}>
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
               {HERO.title}
             </h1>
-            <p className="mt-4 text-gray-700">{HERO.subtitle}</p>
+            <p className="mt-4">{HERO.subtitle}</p>
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="rounded-xl bg-white shadow p-5 text-center">
+              <div className="rounded-xl bg-white/10 backdrop-blur border border-white/20 p-5 text-center">
                 <Counter
                   end={500}
                   suffix="+"
-                  className="text-3xl font-extrabold text-gray-900"
+                  className="text-3xl font-extrabold text-cyan-300"
                 />
-                <div className="text-sm text-gray-500">Projects Delivered</div>
+                <div className="text-sm text-gray-200">Projects Delivered</div>
               </div>
-              <div className="rounded-xl bg-white shadow p-5 text-center">
+              <div className="rounded-xl bg-white/10 backdrop-blur border border-white/20 p-5 text-center">
                 <Counter
                   end={100}
                   suffix="+"
-                  className="text-3xl font-extrabold text-gray-900"
+                  className="text-3xl font-extrabold text-cyan-300"
                 />
-                <div className="text-sm text-gray-500">Happy Clients</div>
+                <div className="text-sm text-gray-200">Happy Clients</div>
               </div>
             </div>
             <a
               href="#contact"
-              className="inline-block mt-8 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:opacity-90"
+              className="inline-block mt-8 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 text-white font-semibold hover:opacity-90"
             >
               {HERO.cta}
             </a>
@@ -167,20 +171,22 @@ export default function DeFiWalletPage() {
 
           <motion.div
             {...fadeUp(0.2)}
-            className="h-60 bg-white/80 rounded-2xl border shadow flex items-center justify-center"
+            className="h-60 rounded-2xl overflow-hidden shadow-xl relative"
           >
-            <span className="text-gray-400">[ Hero Image ]</span>
+            <Image
+              src="/assets/images/defiwallethero.jpeg"
+              alt="DeFi Wallet Hero"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-black/30">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2
-            {...fadeUp(0)}
-            className="text-3xl font-bold text-center mb-10"
-          >
+          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center mb-10 text-white">
             Our DeFi Wallet Development Services
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -188,13 +194,13 @@ export default function DeFiWalletPage() {
               <motion.div
                 key={i}
                 {...fadeUp(i * 0.1)}
-                className="rounded-2xl p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow border"
+                className="rounded-2xl p-6 bg-white/10 border border-white/20 shadow text-white"
               >
-                <div className="p-3 rounded-xl bg-white shadow inline-flex text-indigo-600">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 inline-flex">
                   {s.icon}
                 </div>
                 <h3 className="mt-4 font-semibold">{s.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{s.desc}</p>
+                <p className="text-sm text-gray-300 mt-2">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -202,12 +208,9 @@ export default function DeFiWalletPage() {
       </section>
 
       {/* Features */}
-      <section className="py-14">
+      <section className="py-14 bg-black/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2
-            {...fadeUp(0)}
-            className="text-3xl font-bold text-center mb-10"
-          >
+          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center mb-10 text-white">
             Key Features of DeFi Wallet Development
           </motion.h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -215,11 +218,11 @@ export default function DeFiWalletPage() {
               <motion.div
                 key={i}
                 {...fadeUp(i * 0.1)}
-                className="rounded-2xl p-6 bg-white border shadow"
+                className="rounded-2xl p-6 bg-white/10 border border-white/20 shadow text-white"
               >
-                <CheckCircle2 className="w-6 h-6 text-indigo-600" />
+                <CheckCircle2 className="w-6 h-6 text-cyan-400" />
                 <h4 className="mt-3 font-semibold">{f.title}</h4>
-                <p className="text-sm text-gray-600 mt-1">{f.desc}</p>
+                <p className="text-sm text-gray-300 mt-1">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -227,12 +230,9 @@ export default function DeFiWalletPage() {
       </section>
 
       {/* Portfolio slider */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-black/30">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2
-            {...fadeUp(0)}
-            className="text-3xl font-bold text-center mb-10"
-          >
+          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center mb-10 text-white">
             DeFi Wallet Portfolio
           </motion.h2>
           <Swiper
@@ -245,12 +245,17 @@ export default function DeFiWalletPage() {
           >
             {PORTFOLIO.map((p, i) => (
               <SwiperSlide key={i}>
-                <div className="rounded-2xl border bg-white shadow p-6">
-                  <div className="h-32 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-gray-400">[ Image ]</span>
+                <div className="rounded-2xl bg-white/10 border border-white/20 shadow p-6 text-white">
+                  <div className="h-32 rounded-lg mb-4 overflow-hidden relative">
+                    <Image
+                      src={p.img}
+                      alt={p.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <h4 className="font-semibold">{p.title}</h4>
-                  <p className="text-sm text-gray-600 mt-1">{p.desc}</p>
+                  <p className="text-sm text-gray-300 mt-1">{p.desc}</p>
                 </div>
               </SwiperSlide>
             ))}
@@ -259,12 +264,9 @@ export default function DeFiWalletPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-14">
+      <section className="py-14 bg-black/40">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2
-            {...fadeUp(0)}
-            className="text-3xl font-bold text-center mb-10"
-          >
+          <motion.h2 {...fadeUp(0)} className="text-3xl font-bold text-center mb-10 text-white">
             Testimonials
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -273,14 +275,14 @@ export default function DeFiWalletPage() {
                 <motion.div
                   key={i}
                   {...fadeUp(i * 0.1)}
-                  className="rounded-2xl p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 shadow"
+                  className="rounded-2xl p-6 bg-white/10 border border-white/20 shadow text-white"
                 >
                   <div className="font-semibold">{name}</div>
-                  <div className="text-xs text-gray-500">Client</div>
-                  <p className="text-sm text-gray-600 mt-2">
+                  <div className="text-xs text-gray-400">Client</div>
+                  <p className="text-sm text-gray-200 mt-2">
                     "Great experience working with the team on our DeFi Wallet project."
                   </p>
-                  <div className="flex gap-1 mt-2 text-indigo-600">
+                  <div className="flex gap-1 mt-2 text-cyan-400">
                     {[...Array(5)].map((_, j) => (
                       <Star key={j} className="w-4 h-4 fill-current" />
                     ))}
@@ -293,35 +295,35 @@ export default function DeFiWalletPage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-14 bg-white">
+      <section id="contact" className="py-14 bg-black/30">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center">Contact Us</h2>
-          <form className="mt-8 grid gap-4 md:grid-cols-2 bg-white border shadow rounded-2xl p-6">
+          <h2 className="text-3xl font-bold text-center text-white">Contact Us</h2>
+          <form className="mt-8 grid gap-4 md:grid-cols-2 bg-white/10 border border-white/20 rounded-2xl shadow p-6">
             <input
               placeholder="Full Name *"
-              className="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-200"
+              className="p-3 border rounded-lg bg-white/20 text-white placeholder-gray-300"
               required
             />
             <input
               type="email"
               placeholder="Email *"
-              className="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-200"
+              className="p-3 border rounded-lg bg-white/20 text-white placeholder-gray-300"
               required
             />
             <input
               placeholder="Company"
-              className="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-200"
+              className="p-3 border rounded-lg bg-white/20 text-white placeholder-gray-300"
             />
             <input
               placeholder="Phone"
-              className="p-3 border rounded-lg focus:ring-2 focus:ring-indigo-200"
+              className="p-3 border rounded-lg bg-white/20 text-white placeholder-gray-300"
             />
             <textarea
               placeholder="Your requirements *"
-              className="md:col-span-2 p-3 border rounded-lg h-28 focus:ring-2 focus:ring-indigo-200"
+              className="md:col-span-2 p-3 border rounded-lg h-28 bg-white/20 text-white placeholder-gray-300"
               required
             />
-            <button className="md:col-span-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:opacity-90">
+            <button className="md:col-span-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 text-white font-semibold hover:opacity-90">
               Submit
             </button>
           </form>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Cpu,
@@ -65,35 +66,41 @@ function Counter({ end = 0, duration = 1200, suffix = "+", className = "" }) {
 
 export default function IoTDevelopment() {
   return (
-    <main className="min-h-screen bg-gradient-to-br mt-16 from-indigo-50 via-purple-50 to-pink-50 text-gray-800">
+    <main className="min-h-screen bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950 text-gray-600 mt-18">
       {/* HERO */}
-      <section className="py-20 bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
+      <section className="py-20 bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
           <motion.div {...fade()}>
-            <h1 className="text-4xl md:text-5xl font-extrabold">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white">
               IoT Development Services
             </h1>
-            <p className="mt-4 text-gray-700">
+            <p className="mt-4 text-gray-300">
               Build connected, intelligent IoT solutions that drive business
               transformation.
             </p>
-            <button className="mt-6 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600">
+            <button className="mt-6 px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-blue-600 hover:opacity-90">
               Get a Free Consultation
             </button>
           </motion.div>
           <motion.div
             {...fade(0.1)}
-            className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
+            className="h-72 rounded-xl flex items-center justify-center overflow-hidden shadow-xl"
           >
-            [Hero Image]
+            <Image
+              src="/assets/images/iotdev.jpeg"
+              alt="IoT Development"
+              width={600}
+              height={400}
+              className="object-cover h-full w-full"
+            />
           </motion.div>
         </div>
       </section>
 
       {/* CORE SERVICES */}
-      <section className="py-16 bg-white/70">
+      <section className="py-16 bg-white/10">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fade()} className="text-3xl font-bold text-center">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
             Our Core IoT Development Services
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
@@ -132,11 +139,11 @@ export default function IoTDevelopment() {
               <motion.div
                 key={i}
                 {...fade(i * 0.1)}
-                className="bg-white shadow-md rounded-2xl p-6 text-center"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-md rounded-2xl p-6 text-center hover:bg-white/10 transition"
               >
-                <s.icon className="h-8 w-8 text-indigo-600 mx-auto" />
-                <h4 className="mt-3 font-semibold">{s.title}</h4>
-                <p className="text-sm text-gray-600">{s.text}</p>
+                <s.icon className="h-8 w-8 text-indigo-400 mx-auto" />
+                <h4 className="mt-3 font-semibold text-white">{s.title}</h4>
+                <p className="text-sm text-gray-300">{s.text}</p>
               </motion.div>
             ))}
           </div>
@@ -146,40 +153,44 @@ export default function IoTDevelopment() {
       {/* INDUSTRIES */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.h2 {...fade()} className="text-3xl font-bold text-center">
+          <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
             Industries We Serve With IoT Innovation
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[
-              "Healthcare IoT Solutions",
-              "Smart Manufacturing",
-              "Logistics & Transportation",
+              { title: "Healthcare IoT Solutions", img: "/assets/images/healthcareiot.jpeg" },
+              { title: "Smart Manufacturing", img:"/assets/images/manufactureiot.png" },
+              { title: "Logistics & Transportation", img: "/assets/images/logisticiot.jpeg" },
             ].map((ind, i) => (
               <motion.div
                 key={i}
                 {...fade(i * 0.1)}
-                className="bg-white shadow-md rounded-2xl p-6"
+                className="bg-white/5 backdrop-blur-sm border border-white/10 shadow-md rounded-2xl p-6"
               >
-                <div className="h-40 bg-gray-200 rounded-lg mb-3 flex items-center justify-center">
-                  [Image]
+                <div className="h-40 rounded-lg mb-3 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={ind.img}
+                    alt={ind.title}
+                    width={400}
+                    height={200}
+                    className="object-cover h-full w-full"
+                  />
                 </div>
-                <h4 className="font-semibold">{ind}</h4>
-                <p className="text-sm text-gray-600">
-                  {ind} description content from screenshot.
+                <h4 className="font-semibold text-white">{ind.title}</h4>
+                <p className="text-sm text-gray-300">
+                  {ind.title} description content from screenshot.
                 </p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* TECHNOLOGIES */}
+      </section>     {/* TECHNOLOGIES */}
       <section className="py-16 bg-white/60">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 {...fade()} className="text-3xl font-bold text-center">
             Technologies We Use in IoT Development
           </motion.h2>
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-gray-700">
             {["MQTT", "AWS IoT Core", "Node.js", "Python", "ESP32", "Firebase"].map(
               (tech, i) => (
                 <motion.div

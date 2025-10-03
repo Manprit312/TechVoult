@@ -96,7 +96,7 @@ export default function P2PExchange() {
       {/* What is P2P Exchange */}
       <section className="py-16 px-6 md:px-20 grid md:grid-cols-2 gap-10 items-center">
         <motion.img
-          src="/p2p-exchange.png"
+          src="/assets/images/p2pechange.jpeg"
           alt="p2p"
           className="rounded-lg shadow-lg"
           initial={{ opacity: 0, scale: 0.9 }}
