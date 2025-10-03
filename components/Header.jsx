@@ -144,14 +144,14 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
-      <div className="container flex items-center justify-between py-4 px-4 md:px-8 mt-4">
+      <div className="container flex items-center justify-between mt-4">
         {/* Logo */}
         <Link
           href="/"
           className=" bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
         >
           
-          <Image src="/logo.png" alt="TechVoult Logo" width={150} height={50} />
+          <Image src="/logo.png" alt="TechVoult Logo" width={220} height={100} className="px-3" />
           {/* A land of AI butterflies */}
         </Link>
 
