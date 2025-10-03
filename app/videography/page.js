@@ -12,7 +12,7 @@ export default function VideographyPage() {
         { value: "100+", label: "Brands Served" },
       ]}
       services={[
-        {name:"Corporate Videos",src:"/assets/images/corporatevideo.jpeg"},
+        {name:"Corporate Videos",src:"/assets/images/corporatevideo.png"},
         {name:"Product Ads",src:"/assets/images/productadds.jpeg"},
         {name:"Event Videography",src:"/assets/images/eventvideo.jpeg"},
         {name:"Drone Videography",src:"/assets/images/dronevideo.jpeg"},
@@ -25,9 +25,9 @@ export default function VideographyPage() {
         "Motion Graphics & Animation",
       ]}
       portfolio={[
-        {name: "Corporate Profile Video", src: "/assets/images/videographyport1.jpeg"},
-        {name: "Drone Footage for Real Estate", src: "/assets/images/dronevideo.jpeg"},
-        {name: "E-commerce Product Ad", src: "/assets/images/videographyport3.jpeg"},
+        {name: "Corporate Profile Video", src: "/assets/images/videographyport1.png"},
+        {name: "Drone Footage for Real Estate", src: "/assets/images/videographyport2.png"},
+        {name: "E-commerce Product Ad", src: "/assets/images/videographyport3.png"},
        
       ]}
      

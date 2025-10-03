@@ -114,7 +114,7 @@ export default function ServicePage({ title, subtitle, stats, services, features
                 <Image
                   src={p.src}
                   alt={`Portfolio ${i + 1}`}
-                  width={500}
+                  width={700}
                   height={300}
                   className="rounded-lg object-cover mx-auto mb-4"
                 />

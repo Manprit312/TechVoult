@@ -46,7 +46,7 @@ export default function GameDevelopmentPage() {
             transition={{ duration: 1 }}
           >
             <Image
-              src="/assets/images/gamehero.jpeg"
+              src="/assets/images/gamehero.png"
               alt="Game Development"
               className="w-full h-80 rounded-xl object-cover shadow-2xl"
               width={700}
@@ -139,7 +139,7 @@ export default function GameDevelopmentPage() {
         <div className="mx-auto max-w-screen-xl px-6 text-center">
           <h2 className="text-3xl font-bold">Technologies For Greater Games</h2>
           <div className="mt-10 grid md:grid-cols-2 gap-8">
-            {["/assets/images/gametech.webp", "/assets/images/gametechno.jpeg"].map(
+            {["/assets/images/gametech.webp", "/assets/images/gametechno.png"].map(
               (src, i) => (
                 <motion.div
                   key={src}
@@ -195,9 +195,9 @@ export default function GameDevelopmentPage() {
           <h2 className="text-3xl font-bold">Our Games Portfolio</h2>
           <div className="mt-10 grid md:grid-cols-3 gap-8">
             {[
-              "/assets/images/gameportfolio1.jpeg",
-              "/assets/images/gameportfolio2.jpeg",
-              "/assets/images/gameportfolio3.jpeg",
+              "/assets/images/gameportfolio1.png",
+              "/assets/images/gameportfolio2.png",
+              "/assets/images/gameportfolio3.png",
             ].map((src, i) => (
               <motion.div
                 key={src}

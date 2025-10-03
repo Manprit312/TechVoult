@@ -70,7 +70,7 @@ export default function MobileAppDevelopmentPage() {
         <div className="mx-auto max-w-screen-xl grid md:grid-cols-2 gap-12 px-6 items-center">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
             <Image
-              src="/assets/images/whymobile.jpeg"
+              src="/assets/images/whymobile.png"
               alt="Why choose us"
               width={600}
               height={500}
@@ -155,26 +155,21 @@ export default function MobileAppDevelopmentPage() {
           >
             Key Features Of Our Mobile App Solutions
           </motion.h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition"
-              >
-                <Image
-                  src="/assets/images/keyfeatures.jpeg"
-                  alt={`Mobile App Feature ${i}`}
-                  width={700}
-                  height={700}
-                  className="object-cover rounded-xl"
-                />
-              </motion.div>
-            ))}
-          </div>
+          <div className="mt-10   gap-8 w-full">
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="md:col-span-2 md:col-start-2 overflow-hidden rounded-xl shadow-md hover:shadow-lg"
+  >
+    <video
+      src="/assets/images/portfolio-demo.mp4"
+      controls
+      autoPlay
+      loop
+      muted
+      className="w-full h-[500px] object-cover rounded-xl hover:scale-105 transition-transform duration-500"
+    />
+  </motion.div>
+</div>
         </div>
       </section>
 
@@ -223,26 +218,31 @@ export default function MobileAppDevelopmentPage() {
           >
             Explore Our Mobile App Development Portfolio
           </motion.h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.12 }}
-                className="overflow-hidden rounded-xl shadow-md hover:shadow-lg"
-              >
-                <Image
-                  src="/assets/images/mobileportfolio.jpeg"
-                  alt={`Portfolio ${i}`}
-                  width={600}
-                  height={800}
-                  className="object-cover rounded-xl hover:scale-105 transition-transform duration-500"
-                />
-              </motion.div>
-            ))}
-          </div>
+   <div className="mt-10 h-90 grid md:grid-cols-3 gap-8">
+  {[
+    "/assets/images/mobileportfolio1.webp",
+    "/assets/images/mobileportfolio2.webp",
+    "/assets/images/mobileportfolio3.png",
+  ].map((i, index) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.55, delay: index * 0.12 }}
+      className="overflow-hidden rounded-xl "
+    >
+      <Image
+        src={i}
+        alt={`Portfolio ${index + 1}`}
+        width={500}
+        height={800}
+        className="w-full h-auto rounded-xl hover:scale-105 transition-transform duration-500"
+      />
+    </motion.div>
+  ))}
+</div>
+
         </div>
       </section>
 

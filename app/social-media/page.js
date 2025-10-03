@@ -25,9 +25,9 @@ export default function SocialMediaPage() {
         "Cross-Platform Management",
       ]}
       portfolio={[
-        {name: "Instagram Growth for Fashion Brand", src: "/assets/images/socialmediaport.jpg"},
-        {name: "LinkedIn Lead Campaign for B2B", src: "/assets/images/socialport2.jpeg"},
-        {name: "TikTok Engagement Boost", src: "/assets/images/socialport3.jpeg"},
+        {name: "Instagram Growth for Fashion Brand", src: "/assets/images/socialmediaport.png"},
+        {name: "LinkedIn Lead Campaign for B2B", src: "/assets/images/socialport2.png"},
+        {name: "TikTok Engagement Boost", src: "/assets/images/socialport3.png"},
       ]}
  
     

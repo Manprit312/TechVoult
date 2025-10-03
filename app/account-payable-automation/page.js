@@ -87,7 +87,7 @@ export default function AccountPayableAutomation() {
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
           >
-            <Image src="/assets/images/accountpayable.jpeg" alt="Account Payable Automation"
+            <Image src="/assets/images/accountpayable.png" alt="Account Payable Automation"
               width={400} height={200} className="w-full h-full object-cover rounded-xl" />
 
 
@@ -129,7 +129,7 @@ export default function AccountPayableAutomation() {
           <motion.div
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
-          >    <Image src="/assets/images/accountpayable2.jpeg" alt="Account Payable Automation"
+          >    <Image src="/assets/images/accountpayable2.png" alt="Account Payable Automation"
             width={400} height={200} className="w-full h-full object-cover rounded-xl" />
 
           </motion.div>
@@ -152,7 +152,7 @@ export default function AccountPayableAutomation() {
             {...fade(0.1)}
             className="h-72 bg-gray-200 rounded-xl flex items-center justify-center"
           >
-            <Image src="/assets/images/automation.jpeg" alt="Account Payable Automation"
+            <Image src="/assets/images/automation.png" alt="Account Payable Automation"
               width={400} height={200} className="w-full h-full object-cover rounded-xl " />
 
           </motion.div>
