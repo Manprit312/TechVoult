@@ -86,7 +86,7 @@ export default function AboutPage() {
               <Target className="h-7 w-7 text-indigo-600" /> Our Mission
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              At BharatAI Store, our mission is to lead the convergence of AI, AR/VR,
+              At Parwanix, our mission is to lead the convergence of AI, AR/VR,
               Blockchain, and digital innovation. We design smart, scalable, and
               sustainable solutions that empower businesses and enhance human creativity.
             </p>
@@ -192,7 +192,7 @@ export default function AboutPage() {
             Let’s Build the Future Together 🚀
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We’re a team of thinkers, creators, and innovators. Partner with BharatAI
+            We’re a team of thinkers, creators, and innovators. Partner with Parwanix
             Store to turn your ideas into powerful digital products.
           </p>
           <Link
