@@ -181,10 +181,9 @@ export default function WooCommercePage() {
       >
         <Container className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-4xl font-extrabold text-purple-900">WooCommerce Development Services</h1>
-            <p className="mt-4 text-gray-700">
-              We build fast, scalable, and secure WooCommerce stores tailored to your business.
-            </p>
+            <h1 className="text-4xl font-extrabold text-purple-900">Expert WooCommerce Development Services
+</h1>
+            <p className="mt-4 text-gray-700">BAt Parwanix, we specialize in crafting high-performance WooCommerce stores that blend WordPress flexibility with enterprise-grade functionality. Our developers design stores optimized for speed, security, and seamless user experiences to drive sales and growth</p>
             <motion.div
               className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
               initial={{ scale: 0.9, opacity: 0 }}

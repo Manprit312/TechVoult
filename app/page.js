@@ -1,12 +1,12 @@
 "use client"
 import React from "react";
 import { useState,useCallback,useMemo,useEffect } from "react";
-import HeroSection from "@/components/HeroSection";
-import Services from "@/components/Services";
-import WhyChoose from "@/components/WhyChoose";
-import ContactSection from "@/components/ContactSection";
-import CTASection from "@/components/CTASection";
- import { WelcomePopup } from "@/components/welcome-popup";
+import HeroSection from "../components/HeroSection";
+import Services from "../components/Services";
+import WhyChoose from "../components/WhyChoose";
+import ContactSection from "../components/ContactSection";
+import CTASection from "../components/CTASection";
+ import { WelcomePopup } from "../components/welcome-popup";
           import { usePathname } from "next/navigation";
 export default function HomePage() {
     const pathname = usePathname();

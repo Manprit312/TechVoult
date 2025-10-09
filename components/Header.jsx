@@ -12,12 +12,12 @@ export default function Header() {
   const menuRef = useRef(null);
 
   const megaMenu = {
-    categories: ["Our Expertise", "AI Development", "Blockchain", "Gaming",],
+    categories: ["Our Expertise","Web Development","App Development" ,"AI Development", "Blockchain", "Gaming",],
 
-    "Our Expertise": {
+    "Our Expertise": { 
       "Top Services": [
         { name: "Website Development", href: "webdevelopment" },
-        { name: "Mobile App Development", href: "mobiledevelopment" },
+        { name: "App Development", href: "mobiledevelopment" },
         // { name: "Gaming Services", href: "gamedevelopment" },
         // { name: "IT Managed Services", href: "ManageItServices" },
         // { name: "AI Development", href: "ai-development" },
@@ -26,7 +26,10 @@ export default function Header() {
         { name: "Videography Services", href: "videography" },
         { name: "Photography Services", href: "photography" },
       ],
-      Ecommerce: [
+     
+    },
+"Web Development":{ Ecommerce: [
+    { name: "Web Development", href: "webdevelopment" },
         { name: "Shopify", href: "shopify" },
         { name: "Magento", href: "magento" },
         { name: "Woocommerce", href: "woocommerce" },
@@ -38,9 +41,12 @@ export default function Header() {
       CMS: [
         { name: "Wordpress", href: "wordpress" },
         { name: "Wix", href: "wix" },
-      ],
-    },
-
+      ],},
+      "App Development":{
+ "Top Services": [
+     
+        { name: "App Development", href: "mobiledevelopment" },]
+      },
     "AI Development": {
       "": [
         { name: "AI Development Company", href: "ai-development" },

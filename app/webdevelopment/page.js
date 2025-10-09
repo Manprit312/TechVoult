@@ -19,8 +19,7 @@ export default function WebDevelopmentPage() {
               Top Web Development Company
             </h1>
             <p className="mt-4 text-lg opacity-90">
-              We build scalable, secure, and high-performing websites tailored
-              for your business success.
+             At Parwanix, we craft high-performance websites that align with your business goals, deliver seamless user experiences, and scale with your success.
             </p>
             <div className="mt-6">
               <Link
@@ -62,12 +61,10 @@ export default function WebDevelopmentPage() {
           </motion.div>
           <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
             <h2 className="text-3xl font-bold text-gray-900">
-              Parwanix – Expert Website Development Services
+      Build Websites That Drive Growth
             </h2>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              We deliver custom websites that are fast, secure, and scalable.
-              Our expert developers use the latest technologies to create
-              seamless user experiences across devices.
+             At Parwanix, we craft high-performance websites tailored to your business goals, combining cutting-edge technology with seamless user experiences. From startups to enterprises, we deliver fast, secure, and scalable digital solutions that convert visitors into customers.
             </p>
             <div className="mt-8 flex gap-12">
               <div>

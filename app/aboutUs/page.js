@@ -15,7 +15,8 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
           className="relative z-10"
         >
-          <h1 className="text-5xl font-extrabold text-gray-900">About Us</h1>
+          <h1 className="text-5xl font-extrabold text-gray-900">
+About Us – Parwanix</h1>
           <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-700">
             Empowering innovation through AI, Blockchain, and Digital Transformation —
             building tomorrow’s technology, today.
@@ -62,8 +63,7 @@ export default function AboutPage() {
               <Lightbulb className="h-7 w-7 text-pink-500" /> Our Vision
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              We envision a future where technology bridges creativity and connection —
-              where intelligent systems simplify life and amplify human potential.
+             At Parwanix, we envision a future where technology bridges creativity and connection — where intelligent systems simplify life and amplify human potential. We strive to be a global leader in tech innovation, recognized for our creativity, cutting-edge solutions, and unwavering commitment to a human-first approach.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Our goal is to be a global leader recognized for our creativity,
@@ -86,13 +86,20 @@ export default function AboutPage() {
               <Target className="h-7 w-7 text-indigo-600" /> Our Mission
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              At Parwanix, our mission is to lead the convergence of AI, AR/VR,
-              Blockchain, and digital innovation. We design smart, scalable, and
-              sustainable solutions that empower businesses and enhance human creativity.
+           Pioneering the Future of Intelligent Technology
+At Parwanix, we lead the convergence of AI, AR/VR, Blockchain, and digital innovation to create solutions that redefine what’s possible. We design smart, scalable, and sustainable systems that empower businesses to unlock creativity, streamline operations, and drive transformative outcomes.
+
+By challenging the status quo and redefining technological boundaries, we forge a connected world where intelligence, integrity, and impact converge to amplify human potential and societal progress.
+
+
             </p>
             <p className="text-gray-600 leading-relaxed">
-              By constantly pushing the boundaries of what technology can do, we aim to
-              shape a connected world driven by intelligence, integrity, and impact.
+          Our Commitment:
+
+Innovate Relentlessly: Stay ahead with cutting-edge technologies and ethical practices.
+Empower Responsibly: Build solutions that prioritize people, planet, and long-term value.
+Deliver Excellence: Solve complex challenges with precision and passion.
+Join us in shaping a future where technology serves humanity.
             </p>
           </div>
 

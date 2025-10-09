@@ -176,10 +176,12 @@ export default function MagentoPage() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl font-extrabold text-gray-900">
-              Magento Development Services
+         
+Expert Magento Development Services
             </h1>
             <p className="mt-4 text-gray-700">
-              Build scalable, secure, and high-performing Magento stores with our expert developers.
+
+At Parwanix, we specialize in crafting custom Magento stores for businesses that demand advanced functionality, multi-store management, and seamless scalability. Our Magento developers design robust, secure, and high-performance platforms tailored to complex e-commerce needs.
             </p>
             <motion.div
               className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
@@ -240,11 +242,21 @@ export default function MagentoPage() {
             width={600} height={400} className="w-full h-full object-cover" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-gray-900">Magento Development Expertise</h3>
+          <h3 className="text-2xl font-bold text-gray-900"> Why Choose Parwanix for Magento?</h3>
           <p className="mt-4 text-gray-700">
-            Our Magento team provides complete eCommerce solutions from
-            development, migration, extension building, to support & maintenance.
-          </p>
+           
+
+Proven Expertise: 50+ Magento stores delivered with 99.9% uptime.
+Agile Development: Bi-weekly sprints with real-time progress tracking.
+Future-Proof Solutions: Built to grow with your business and evolving tech trends.
+Our Process
+
+Discovery: Analyze business goals, inventory size, and integration needs.
+Design: Create wireframes and prototypes for user approval.
+Develop: Build with modular architecture for easy scalability.
+Launch: Ensure seamless migration and testing.
+Optimize: Continuously refine performance and security.
+</p>
         </div>
       </motion.section>
 

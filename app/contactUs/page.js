@@ -1,23 +1,26 @@
 "use client";
 import React, { useState } from "react";
-import { Mail, Phone, CheckCircle } from "lucide-react";
+import { Mail, Phone, CheckCircle, Calendar } from "lucide-react";
 import Image from "next/image";
+
 export default function ContactPage() {
- const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
   const [selectedCode, setSelectedCode] = useState("+91");
-const countryCodes = [
-  { code: "+1", name: "United States", flag: "🇺🇸" },
-  { code: "+44", name: "United Kingdom", flag: "🇬🇧" },
-  { code: "+61", name: "Australia", flag: "🇦🇺" },
-  { code: "+91", name: "India", flag: "🇮🇳" },
-  { code: "+971", name: "UAE", flag: "🇦🇪" },
-  { code: "+49", name: "Germany", flag: "🇩🇪" },
-  { code: "+33", name: "France", flag: "🇫🇷" },
-  { code: "+81", name: "Japan", flag: "🇯🇵" },
-  { code: "+1-CA", name: "Canada", flag: "🇨🇦" },
-];
+
+  const countryCodes = [
+    { code: "+1", name: "United States", flag: "🇺🇸" },
+    { code: "+44", name: "United Kingdom", flag: "🇬🇧" },
+    { code: "+61", name: "Australia", flag: "🇦🇺" },
+    { code: "+91", name: "India", flag: "🇮🇳" },
+    { code: "+971", name: "UAE", flag: "🇦🇪" },
+    { code: "+49", name: "Germany", flag: "🇩🇪" },
+    { code: "+33", name: "France", flag: "🇫🇷" },
+    { code: "+81", name: "Japan", flag: "🇯🇵" },
+    { code: "+1-CA", name: "Canada", flag: "🇨🇦" },
+  ];
+
   async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -28,6 +31,8 @@ const countryCodes = [
     const formData = new FormData(form);
 
     const phone = formData.get("phone")?.toString().trim();
+    const meetingDate = formData.get("meetingDate")?.toString();
+    const meetingTime = formData.get("meetingTime")?.toString();
 
     const payload = {
       name: formData.get("name")?.toString().trim(),
@@ -35,17 +40,17 @@ const countryCodes = [
       phone: `${selectedCode} ${phone}`,
       message: formData.get("message")?.toString().trim(),
       budget: formData.get("budget")?.toString(),
-      captcha: formData.get("captcha")?.toString(),
+      meetingDate,
+      meetingTime,
     };
 
-    // ✅ Basic validation
+    // ✅ Validation
     if (!payload.name || !payload.email || !selectedCode || !phone || !payload.message) {
       setLoading(false);
       setError("Please fill in all required fields.");
       return;
     }
 
-    // ✅ Validate phone digits
     const phoneRegex = /^\d{7,15}$/;
     if (!phoneRegex.test(phone)) {
       setLoading(false);
@@ -53,10 +58,9 @@ const countryCodes = [
       return;
     }
 
-    // ✅ Captcha validation
-    if (Number(payload.captcha) !== 6) {
+    if (!meetingDate || !meetingTime) {
       setLoading(false);
-      setError("Captcha is incorrect. Please answer 1 + 5 correctly.");
+      setError("Please select your preferred meeting date and time.");
       return;
     }
 
@@ -69,7 +73,7 @@ const countryCodes = [
 
       if (!res.ok) throw new Error("Failed to submit form");
 
-      setSuccess("Thanks! Your message has been sent. We'll get back to you soon.");
+      setSuccess("Thanks! Your meeting has been scheduled. We'll confirm via email soon.");
       form.reset();
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");
@@ -84,8 +88,7 @@ const countryCodes = [
       <section className="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 py-16 my-15 text-center text-gray-900">
         <h1 className="text-4xl font-extrabold">Contact Us</h1>
         <p className="mt-2 text-base max-w-2xl mx-auto opacity-80">
-          Feel free to talk about your dream project. We’re here to listen, help, and
-          build something amazing together.
+          Let’s discuss your dream project and schedule a meeting to get started.
         </p>
         <div className="mt-6">
           <a
@@ -118,7 +121,7 @@ const countryCodes = [
 
             <div className="mt-6 space-y-2 text-gray-700 text-sm">
               <p className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-indigo-500" /> 
+                <Mail className="h-5 w-5 text-indigo-500" /> info@parwanix.com
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-indigo-500" /> +1 (510) 630-6507
@@ -137,24 +140,25 @@ const countryCodes = [
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700" htmlFor="name">Full Name *</label>
-                <input id="name" name="name" required placeholder="John Doe" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                <input id="name" name="name" required placeholder="John Doe" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400" />
               </div>
               <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700" htmlFor="email">Email *</label>
-                <input id="email" name="email" type="email" required placeholder="you@example.com" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                <input id="email" name="email" type="email" required placeholder="you@example.com" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400" />
               </div>
 
-            <div className="space-y-1 sm:col-span-2">
+              {/* Phone */}
+              <div className="space-y-1 sm:col-span-2">
                 <label className="text-sm font-medium text-gray-700" htmlFor="phone">
                   Phone Number *
                 </label>
-                <div className="flex gap-2 space-x-3">
+                <div className="flex gap-2">
                   <select
                     id="countryCode"
                     name="countryCode"
                     value={selectedCode}
                     onChange={(e) => setSelectedCode(e.target.value)}
-                    className="w-1/6 rounded-lg border border-gray-300 px-2 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-sm"
+                    className="w-1/4 rounded-lg border border-gray-300 px-2 py-2 focus:ring-2 focus:ring-indigo-400 text-sm"
                   >
                     {countryCodes.map((c) => (
                       <option key={c.code} value={c.code}>
@@ -162,33 +166,58 @@ const countryCodes = [
                       </option>
                     ))}
                   </select>
-
                   <input
                     id="phone"
                     name="phone"
                     required
                     placeholder="9876543210"
-                    className="w-2/3 rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    className="w-3/4 rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
                   />
                 </div>
               </div>
 
-              <div className="sm:col-span-2 space-y-1">
-                <label className="text-sm font-medium text-gray-700" htmlFor="message">Please share your detailed requirements *</label>
-                <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project goals, timeline, and any must-haves." className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+              {/* Date & Time Pickers */}
+              <div className="space-y-1">
+                <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-indigo-500" /> Meeting Date *
+                </label>
+                <input
+                  id="meetingDate"
+                  name="meetingDate"
+                  type="date"
+                  required
+                  min={new Date().toISOString().split("T")[0]}
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                />
               </div>
               <div className="space-y-1">
+                <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-indigo-500" /> Meeting Time *
+                </label>
+                <input
+                  id="meetingTime"
+                  name="meetingTime"
+                  type="time"
+                  required
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                />
+              </div>
+
+              {/* Message */}
+              <div className="sm:col-span-2 space-y-1">
+                <label className="text-sm font-medium text-gray-700" htmlFor="message">Project Requirements *</label>
+                <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project goals, timeline, and must-haves." className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"></textarea>
+              </div>
+
+              <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700" htmlFor="budget">Budget Range</label>
-                <select id="budget" name="budget" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                <select id="budget" name="budget" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400">
+                   <option value="5k-10k">$5,000 - $10,000</option>
                   <option value="10k-25k">$10,000 - $25,000</option>
                   <option value="25k-50k">$25,000 - $50,000</option>
                   <option value=">50k">$50,000+</option>
                 </select>
               </div>
-              {/* <div className="space-y-1">
-                <label className="text-sm font-medium text-gray-700" htmlFor="captcha">What is 1 + 5? *</label>
-                <input id="captcha" name="captcha" required placeholder="6" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
-              </div> */}
             </div>
 
             {error && (
@@ -203,115 +232,9 @@ const countryCodes = [
               disabled={loading}
               className="mt-6 w-full rounded-xl bg-gradient-to-r from-orange-400 to-pink-400 px-6 py-3 text-sm font-semibold text-white shadow hover:opacity-95 disabled:opacity-60"
             >
-              {loading ? "Submitting..." : "Submit"}
+              {loading ? "Submitting..." : "Schedule Meeting"}
             </button>
           </form>
-        </div>
-      </section>
-
-
-      {/* OUR OFFICES */}
-      {/* <section className="bg-gray-50">
-        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:py-20">
-          <h2 className="text-3xl font-extrabold mb-6 text-center">Our Offices</h2>
-          <p className="text-gray-600 mb-10 text-center">New locations coming up in Singapore and Pune, India.</p>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4">
-                <Image 
-                src="/assets/images/office.jpeg"
-                alt="Noida Office"
-                width={400}
-                height={200}
-                className="h-full w-full object-cover rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700">715, Astralis, Supernova, Sector 94 Noida, Delhi NCR India, 201301</p>
-            </div>
-
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4">
-                 <Image 
-                src="/assets/images/office2.jpeg"
-                alt="Noida Office"
-                width={400}
-                height={200}
-                className="h-full w-full object-cover rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700">5214f Diamond Heights Blvd, San Francisco, California, USA 94131</p>
-            </div>
-
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <div className="h-40 bg-gray-200 rounded-lg mb-4">
-                 <Image 
-                src="/assets/images/office3.jpeg"
-                alt="Noida Office"
-                width={400}
-                height={200}
-                className="h-full w-full object-cover rounded-lg"
-                />
-              </div>
-              <p className="text-gray-700">Unit No: 729, DMCC Business Centre, Level No 1, Jumeirah & Gemplex 3, Dubai, UAE</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* AWARDS & RECOGNITION */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:py-20 text-center">
-          <h2 className="text-3xl font-extrabold mb-10">Awards & Recognition</h2>
-          <p className="text-gray-600 mb-8">We are honored to receive recognition for our excellence from leading publications worldwide.</p>
-
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="h-16 w-32 bg-gray-200 rounded-lg">
-              <Image
-                src="/assets/images/award1.jpeg"
-                alt="Clutch"
-                width={128}
-                height={64}
-                className="h-full w-full object-cover p-2"
-              />
-            </div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg">
-              <Image
-                src="/assets/images/award2.jpeg"
-                alt="Clutch"
-                width={128}
-                height={64}
-                className="h-full w-full object-cover p-2"
-              />
-            </div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg">
-              <Image
-                src="/assets/images/award3.jpeg"
-                alt="Clutch"
-                width={128}
-                height={64}
-                className="h-full w-full object-cover p-2"
-              />
-            </div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg">
-              <Image
-                src="/assets/images/award4.jpeg"
-                alt="Clutch"
-                width={128}
-                height={64}
-                className="h-full w-full object-cover p-2"
-              />
-            </div>
-            <div className="h-16 w-32 bg-gray-200 rounded-lg">
-              <Image
-                src="/assets/images/award1.jpeg"
-                alt="Clutch"
-                width={300}
-                height={104}
-                className="h-full w-full object-cover p-2"
-              />
-            </div>
-          </div>
         </div>
       </section>
     </main>

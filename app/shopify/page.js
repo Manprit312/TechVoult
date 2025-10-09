@@ -87,9 +87,11 @@ export default function ShopifyPage() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h1 className="text-4xl font-extrabold text-gray-900">Shopify Development Company</h1>
+            <h1 className="text-4xl font-extrabold text-gray-900">Expert Shopify Development for High-Performing E-Commerce Stores</h1>
             <p className="mt-4 text-gray-700">
-              We build scalable, secure, and feature-rich Shopify stores to take your business online and boost conversions.
+Build Scalable, Secure, and Feature-Rich Shopify Stores to Drive Sales and Growth
+
+At Parwanix, we specialize in crafting custom Shopify stores that combine aesthetics, functionality, and performance to take your business online and maximize conversions. From custom themes to seamless payment integrations, we design stores that scale with your business, protect your data, and drive conversions.
             </p>
             <div className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg">
               <Image src="/assets/images/shopify.jpeg" alt="Shopify Development"

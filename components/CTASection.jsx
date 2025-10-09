@@ -16,13 +16,13 @@ import Link from "next/link";
 
           <div className="flex justify-center gap-4 flex-wrap">
             <Link
-              href="/contact"
+              href="/contactUs"
               className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition"
             >
               Get Free Consultation
             </Link>
             <Link
-              href="/portfolio"
+              href="/webdevelopment#portfolio"
               className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition"
             >
               View Portfolio

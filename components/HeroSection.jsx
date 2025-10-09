@@ -66,7 +66,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
             <Link
-              href="#contact"
+              href="#contactUs"
               className="px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg hover:shadow-xl hover:scale-105 transition"
             >
               Start Your Project
