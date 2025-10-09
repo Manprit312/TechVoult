@@ -66,12 +66,12 @@ export const WelcomePopup= ({ isOpen, onClose }) => {
     }, [isOpen, slides.length])
 
     const handleGetStarted = () => {
-        router.push('/contact-us')
+        router.push('/contactUs')
         onClose()
     }
 
     const handleExploreServices = () => {
-        router.push('/service')
+        router.push('/#service')
         onClose()
     }
 
