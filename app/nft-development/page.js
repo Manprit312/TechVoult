@@ -59,7 +59,7 @@ const content = {
   },
 
   whyChoose: {
-    heading: "Why SDLC Corp is the Best Choice For Your NFT Development Needs",
+    heading: "Why Parwanix Corp is the Best Choice For Your NFT Development Needs",
     points: [
       { title: "Expert Blockchain Engineers", text: "Skilled developers with deep NFT domain expertise." },
       { title: "End-to-End Development", text: "From smart contracts to UI/UX to deployment." },

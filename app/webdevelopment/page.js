@@ -62,7 +62,7 @@ export default function WebDevelopmentPage() {
           </motion.div>
           <motion.div initial="hidden" whileInView="show" variants={fadeUp}>
             <h2 className="text-3xl font-bold text-gray-900">
-              SDLC Corp – Expert Website Development Services
+              Parwanix – Expert Website Development Services
             </h2>
             <p className="mt-4 text-gray-600 leading-relaxed">
               We deliver custom websites that are fast, secure, and scalable.
@@ -125,7 +125,7 @@ export default function WebDevelopmentPage() {
       </section>
 
       {/* PORTFOLIO */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-20" id="portfolio">
         <div className="mx-auto max-w-screen-xl px-6 text-center">
           <motion.h2
             initial="hidden"
@@ -206,7 +206,7 @@ export default function WebDevelopmentPage() {
               {
                 name: "David Smith",
                 feedback:
-                  "SDLC Corp built our ecommerce store with excellent quality. Smooth process and on-time delivery!",
+                  "Parwanix  built our ecommerce store with excellent quality. Smooth process and on-time delivery!",
               },
               {
                 name: "Sophia Johnson",

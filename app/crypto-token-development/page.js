@@ -70,7 +70,7 @@ export default function CryptoTokenDevelopment() {
               Crypto Token Development Company
             </h1>
             <p className="mt-4 text-gray-100">
-              SDLC Corp is a top crypto token development company offering
+              Parwanix Corp is a top crypto token development company offering
               robust, scalable, and secure token development solutions across
               multiple blockchain platforms.
             </p>
@@ -195,7 +195,7 @@ export default function CryptoTokenDevelopment() {
       <section className="py-16 bg-black/40">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <motion.h2 {...fade()} className="text-3xl font-bold text-white">
-            Why Choose SDLC Corp for Crypto Token Development?
+            Why Choose Parwanix Corp for Crypto Token Development?
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[

@@ -25,7 +25,7 @@ const content = {
 
   intro: {
     heading: "Our DeFi Development Company Expertise",
-    body: "With years of experience in blockchain, SDLC Corp specializes in DeFi app development including decentralized exchanges, wallets, lending protocols, staking systems, and yield farming solutions.",
+    body: "With years of experience in blockchain, Parwanix Corp specializes in DeFi app development including decentralized exchanges, wallets, lending protocols, staking systems, and yield farming solutions.",
   },
 
   services: {
@@ -95,7 +95,7 @@ const content = {
   },
 
   whyChoose: {
-    heading: "Why Choose SDLC Corp For Your DeFi Development?",
+    heading: "Why Choose Parwanix Corp For Your DeFi Development?",
     points: [
       { title: "Security First", text: "We deliver fully audited smart contracts for maximum security." },
       { title: "On-Time Delivery", text: "Agile development ensures fast project delivery." },

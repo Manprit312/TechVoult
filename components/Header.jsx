@@ -7,20 +7,20 @@ import Image from "next/image";
 export default function Header() {
   const router = useRouter(); // ✅ use router
   const [activeMenu, setActiveMenu] = useState("Services");
-  const [activeCategory, setActiveCategory] = useState("Core");
+  const [activeCategory, setActiveCategory] = useState("Our Expertise");
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
 
   const megaMenu = {
-    categories: ["Core", "AI/ML", "Web3", "ERP/CRM", "Gaming",],
+    categories: ["Our Expertise", "AI Development", "Blockchain", "Gaming",],
 
-    Core: {
+    "Our Expertise": {
       "Top Services": [
         { name: "Website Development", href: "webdevelopment" },
         { name: "Mobile App Development", href: "mobiledevelopment" },
-        { name: "Gaming Services", href: "gamedevelopment" },
-        { name: "IT Managed Services", href: "ManageItServices" },
-        { name: "AI Development", href: "ai-development" },
+        // { name: "Gaming Services", href: "gamedevelopment" },
+        // { name: "IT Managed Services", href: "ManageItServices" },
+        // { name: "AI Development", href: "ai-development" },
         { name: "Social Media Management", href: "social-media" },
         { name: "Content Writing Services", href: "content-creation" },
         { name: "Videography Services", href: "videography" },
@@ -41,8 +41,8 @@ export default function Header() {
       ],
     },
 
-    "AI/ML": {
-      "AI/ML": [
+    "AI Development": {
+      "": [
         { name: "AI Development Company", href: "ai-development" },
         { name: "Machine Learning", href: "machine-learning" },
         { name: "AI Chatbot", href: "ai-chatbot" },
@@ -57,7 +57,7 @@ export default function Header() {
 
     },
 
-    Web3: {
+  "Blockchain": {
       Blockchain: [
         { name: "Blockchain Development", href: "web3development" },
         { name: "HyperLedger", href: "hyperledger-development-company" },
@@ -89,17 +89,6 @@ export default function Header() {
       ],
     },
 
-    "ERP/CRM": {
-      "Odoo": [
-        { name: "Odoo Development", href: "odoo-services" },
-        // { name: "CRM Development", href: "crm-development" },
-      ],
-      //  "Salesforce": [
-      //   { name: "ERP Solutions", href: "erp-solutions" },
-      //   { name: "CRM Development", href: "crm-development" },
-      // ],
-    },
-
     Gaming: {
       "Game Development": [
         { name: "Unity Game Development", href: "gamedevelopment" },
@@ -124,6 +113,7 @@ export default function Header() {
       href: "/aboutUs",
 
     },
+    { title: "Portfolio", href: "/webdevelopment#portfolio",  },
     {
       title: "Contact",
       href: "/contactUs",
@@ -146,15 +136,15 @@ export default function Header() {
     <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50 ">
       <div className="container flex items-center justify-between mt-4">
         {/* Logo */}
-       <Link href="/" className="flex items-center space-x-3">
+       <Link href="/" className="flex items-center ">
       {/* Logo Image */}
-      <Image
-        src="/logo.png"
-        alt="TechVoult Logo"
-        width={70}
-        height={70}
-        className="pl-2"
-      />
+    <Image
+      src="/logo.png"
+      alt="TechVoult Logo"
+      width={70}
+      height={70}
+      className="pl-1"
+    />
 
       {/* Text Wrapper */}
       <div className="flex flex-col leading-tight">
@@ -164,7 +154,7 @@ export default function Header() {
         </span>
         {/* Tagline */}
         <span className="text-sm text-gray-500">
-          A land of AI butterflies
+        Land of AI Butterflies
         </span>
       </div>
     </Link>
@@ -262,8 +252,7 @@ export default function Header() {
           <Link
             href="contactUs"
             className="px-5 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow hover:opacity-90 transition"
-          >
-            Free Consultation
+          >Schedule Online Meeting
           </Link>
         </div>
 
@@ -357,7 +346,7 @@ export default function Header() {
           setActiveMenu(null);
         }}
       >
-        Get Started
+       Schedule Online Meeting
       </Link>
     </div>
   </div>

@@ -159,7 +159,7 @@ export default function Web3Development() {
       <section className="py-16 bg-[#111827]">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2 {...fade()} className="text-3xl font-bold text-center text-white">
-            Why Choose SDLC Corp For Blockchain Development?
+            Why Choose Parwanix Corp For Blockchain Development?
           </motion.h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {[

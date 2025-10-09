@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import ChatBot from "@/components/ChatBot";
-import PwaFooter from "@/components/PwaFooter";
+
 export const metadata = {
   title: "A land of AI butterflies - Digital Solutions",
   description: "Next-Level Digital Solutions for your business growth",
@@ -24,6 +24,7 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <head>
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
            {/* <PwaFooter /> */}
 
         <Header />
+  
         <FloatingCTA />
         <ChatBot />
 

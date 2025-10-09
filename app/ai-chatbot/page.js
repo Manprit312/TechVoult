@@ -182,7 +182,7 @@ export default function AIChatbotPage() {
             {[
               { name: "John D.", role: "CTO, Healthcare Startup", quote: "Their chatbot reduced our support costs by 50% and improved customer satisfaction." },
               { name: "Sarah L.", role: "Product Manager, eCommerce", quote: "We deployed a multilingual chatbot that boosted conversions instantly." },
-              { name: "Michael K.", role: "CEO, Fintech", quote: "AI bots by SDLC Corp handle thousands of queries daily, flawlessly." },
+              { name: "Michael K.", role: "CEO, Fintech", quote: "AI bots by Parwanix Corp handle thousands of queries daily, flawlessly." },
             ].map((t, i) => (
               <motion.div
                 key={i}
