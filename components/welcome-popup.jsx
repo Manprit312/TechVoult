@@ -174,7 +174,6 @@ export const WelcomePopup = ({ isOpen, onClose }) => {
     return (
         <AnimatePresence>
             <motion.div
-                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center py-2 px-2 sm:p-4"
@@ -184,7 +183,7 @@ export const WelcomePopup = ({ isOpen, onClose }) => {
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.8, opacity: 0, y: 50 }}
                     transition={{ type: "spring", duration: 0.6 }}
-                    className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full min-h-[60vh] max-h-[96vh] sm:h-auto relative shadow-2xl overflow-hidden"
+                    className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[96vh] sm:h-auto relative shadow-2xl overflow-hidden"
                 >
                     <button
                         onClick={onClose}
