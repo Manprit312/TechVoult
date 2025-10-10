@@ -126,65 +126,66 @@ Join us in shaping a future where technology serves humanity.
 
       {/* VALUES */}
       <section className="relative bg-gradient-to-br from-white via-purple-50 to-pink-50 py-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-6xl mx-auto px-6 text-center"
-        >
-          <h2 className="text-4xl font-extrabold mb-12">Our Core Values</h2>
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+  className="max-w-6xl mx-auto px-6 text-center"
+>
+  <h2 className="text-4xl font-extrabold mb-12">Our Core Values</h2>
 
-          <motion.div
-            className="grid md:grid-cols-3 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.2,
-                },
-              },
-            }}
-          >
-            {[
-              {
-                icon: <Users className="h-6 w-6 text-indigo-600" />,
-                bg: "bg-indigo-100",
-                title: "Transparency",
-                text: "We believe in openness, trust, and accountability — building meaningful, long-term partnerships through clear communication.",
-              },
-              {
-                icon: <Lightbulb className="h-6 w-6 text-pink-500" />,
-                bg: "bg-pink-100",
-                title: "Innovation",
-                text: "Innovation is our heartbeat — we constantly explore creative solutions that empower businesses to stay ahead of the curve.",
-              },
-              {
-                icon: <ShieldCheck className="h-6 w-6 text-green-600" />,
-                bg: "bg-green-100",
-                title: "Quality & Support",
-                text: "We go beyond delivery — ensuring unmatched quality, reliability, and post-launch support that helps clients scale successfully.",
-              },
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                className="rounded-2xl bg-white shadow-md hover:shadow-xl transition p-8 border border-gray-100"
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-              >
-                <div
-                  className={`inline-flex h-14 w-14 items-center justify-center rounded-full ${value.bg} mb-4`}
-                >
-                  {value.icon}
-                </div>
-                <h3 className="text-lg font-semibold">{value.title}</h3>
-                <p className="mt-3 text-gray-600 text-sm leading-relaxed">{value.text}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+  <motion.div
+    className="grid md:grid-cols-3 gap-8"
+    initial="hidden"
+    whileInView="visible"
+    variants={{
+      visible: {
+        transition: {
+          staggerChildren: 0.2,
+        },
+      },
+    }}
+  >
+    {[
+      {
+        icon: <Users className="h-6 w-6 text-indigo-600" />,
+        bg: "bg-indigo-100",
+        title: "Client-Centric Approach",
+        text: "We put our clients first — understanding their goals deeply to craft digital experiences that drive measurable business success.",
+      },
+      {
+        icon: <Lightbulb className="h-6 w-6 text-pink-500" />,
+        bg: "bg-pink-100",
+        title: "Innovation at the Core",
+        text: "We embrace emerging technologies and creative problem-solving to deliver next-generation solutions that redefine possibilities.",
+      },
+      {
+        icon: <ShieldCheck className="h-6 w-6 text-green-600" />,
+        bg: "bg-green-100",
+        title: "Quality & Reliability",
+        text: "From strategy to execution, we maintain the highest standards of quality, transparency, and long-term support for every project we build.",
+      },
+    ].map((value, index) => (
+      <motion.div
+        key={index}
+        className="rounded-2xl bg-white shadow-md hover:shadow-xl transition p-8 border border-gray-100"
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 },
+        }}
+      >
+        <div
+          className={`inline-flex h-14 w-14 items-center justify-center rounded-full ${value.bg} mb-4`}
+        >
+          {value.icon}
+        </div>
+        <h3 className="text-lg font-semibold">{value.title}</h3>
+        <p className="mt-3 text-gray-600 text-sm leading-relaxed">{value.text}</p>
+      </motion.div>
+    ))}
+  </motion.div>
+</motion.div>
+
       </section>
 
       {/* CTA */}

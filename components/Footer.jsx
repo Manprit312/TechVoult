@@ -52,18 +52,18 @@ export default function Footer() {
 
         {/* Solutions */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Solutions</h4>
+          {/* <h4 className="text-white font-semibold mb-4">Solutions</h4> */}
           <ul className="space-y-2 text-sm">
             <li><Link href="/social-media">Digital Marketing</Link></li>
             <li><Link href="/social-media">SEO Services</Link></li>
             <li><Link href="/social-media">Advertisement</Link></li>
-            <li><Link href="/ai-development">AI Solutions</Link></li>
+            <li><Link href="/ai-development">AI Development</Link></li>
           </ul>
         </div>
 
         {/* Company */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Company</h4>
+          {/* <h4 className="text-white font-semibold mb-4">Company</h4> */}
           <ul className="space-y-2 text-sm">
             <li><Link href="/aboutUs">About Us</Link></li>
             <li><Link href="/contactUs">Contact</Link></li>
@@ -84,15 +84,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        © 2025 Land of AI butterflies. All rights reserved. |
-        <div>
-          Developed By
-          <Link href="https://www.bharatai.store/" className="ml-2 hover:text-white">
-            BharatAI Store
-          </Link>
-        </div>
-      </div>
+    <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+  © 2025 All rights reserved | Parwanix | Developed by{" "}
+  <Link
+    href="https://www.bharatai.store/"
+    className="hover:text-white font-medium transition-colors"
+  >
+    BharatAI Solutions
+  </Link>
+</div>
     </footer>
   );
 }

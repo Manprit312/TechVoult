@@ -2,7 +2,9 @@
 import Link from "next/link";
 import { Briefcase, Smile, Headset, Clock } from "lucide-react";
 import { useState } from "react";
-export default function HeroSection() {
+
+export default function HeroSection({ onOpenPopup }) {
+
   const stats = [
     { number: "500+", label: "Projects Delivered", icon: <Briefcase className="w-8 h-8 text-orange-400" /> },
     { number: "98%", label: "Client Satisfaction", icon: <Smile className="w-8 h-8 text-pink-400" /> },
@@ -66,11 +68,12 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
             <Link
-              href="#contactUs"
-              className="px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg hover:shadow-xl hover:scale-105 transition"
-            >
-              Start Your Project
-            </Link>
+      href="/"
+       onClick={onOpenPopup}
+      className="px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-pink-500 shadow-lg hover:shadow-xl hover:scale-105 transition"
+    >
+      Start Your Project
+    </Link>
 
             <button
               onClick={handleDownload}

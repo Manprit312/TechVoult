@@ -110,12 +110,15 @@ export default function HomePage() {
 
   if (isAdminRoute) return null;
 
-
+const openWelcomePopup = useCallback(() => {
+  setActivePopup("welcome");
+  setPopupShown(true);
+}, []);
   return (
     <>
            <WelcomePopup isOpen={activePopup === 'welcome'} onClose={closePopup} />
 
-      <HeroSection />
+      <HeroSection onOpenPopup={openWelcomePopup} />
       <Services />
       <WhyChoose />
       <CTASection />

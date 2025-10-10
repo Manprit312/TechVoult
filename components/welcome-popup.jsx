@@ -8,34 +8,45 @@ import Image from 'next/image'
 
 
 
-export const WelcomePopup= ({ isOpen, onClose }) => {
+export const WelcomePopup = ({ isOpen, onClose }) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const router = useRouter()
 
-    // useEffect(() => {
-    //     if (isOpen) {
-    //         setTimeout(() => {
-    //             triggerSideCannonConfetti()
-    //         }, 500)
-    //     }
-    // }, [isOpen])
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(null);
+    const [error, setError] = useState(null);
+    const [selectedCode, setSelectedCode] = useState("+91");
+
+    const countryCodes = [
+        { code: "+1", name: "United States", flag: "🇺🇸" },
+        { code: "+44", name: "United Kingdom", flag: "🇬🇧" },
+        { code: "+61", name: "Australia", flag: "🇦🇺" },
+        { code: "+91", name: "India", flag: "🇮🇳" },
+        { code: "+971", name: "UAE", flag: "🇦🇪" },
+        { code: "+49", name: "Germany", flag: "🇩🇪" },
+        { code: "+33", name: "France", flag: "🇫🇷" },
+        { code: "+81", name: "Japan", flag: "🇯🇵" },
+        { code: "+1-CA", name: "Canada", flag: "🇨🇦" },
+    ];
 
     const slides = [
         {
             title: "Welcome to Parwanix 🚀",
             subtitle: "Transform Your Ideas Into Reality",
-            description: "We're a premium software development company specializing in cutting-edge digital solutions.",
+            description:
+                "We're a premium software development company specializing in cutting-edge digital solutions.",
             image: "/image/hero.png",
             stats: [
                 { icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Happy Clients", value: "100+" },
                 { icon: <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Projects", value: "500+" },
-                { icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Rating", value: "5.0" }
-            ]
+                { icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Rating", value: "5.0" },
+            ],
         },
         {
             title: "Our Expertise 💡",
             subtitle: "Full-Stack Development Solutions",
-            description: "From mobile apps to enterprise software, we deliver exceptional digital experiences.",
+            description:
+                "From mobile apps to enterprise software, we deliver exceptional digital experiences.",
             image: "/image/computer.jpg",
             features: [
                 "🔥 Mobile App Development",
@@ -43,27 +54,108 @@ export const WelcomePopup= ({ isOpen, onClose }) => {
                 "🛒 E-commerce Solutions",
                 "🔐 Blockchain Development",
                 "🤖 AI Solutions",
-                "☁️ Cloud Services"
-            ]
+                "☁️ Cloud Services",
+            ],
         },
         {
             title: "Ready to Start? 🎯",
             subtitle: "Let's Build Something Amazing Together",
-            description: "Join hundreds of satisfied clients who trusted us with their digital transformation.",
+            description:
+                "Join hundreds of satisfied clients who trusted us with their digital transformation.",
             image: "/image/team_1.jpg",
-            cta: true
-        }
-    ]
+            cta: true,
+        },
+        {
+            title: "Book a Meeting 📅",
+            subtitle: "Let's Talk About Your Project",
+            description:
+                "Fill out the form below to schedule your free consultation with our experts.",
+            image: "/image/team_3.jpg",
+            contactForm: true,
+        },
+    ];
 
+
+    async function onSubmit(e) {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+        setSuccess(null);
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const phone = formData.get("phone")?.toString().trim();
+        const meetingDate = formData.get("meetingDate")?.toString();
+        const meetingTime = formData.get("meetingTime")?.toString();
+
+        const payload = {
+            name: formData.get("name")?.toString().trim(),
+            email: formData.get("email")?.toString().trim(),
+            phone: `${selectedCode} ${phone}`,
+            message: formData.get("message")?.toString().trim(),
+            budget: formData.get("budget")?.toString(),
+            meetingDate,
+            meetingTime,
+        };
+
+        if (!payload.name || !payload.email || !selectedCode || !phone || !payload.message) {
+            setLoading(false);
+            setError("Please fill in all required fields.");
+            return;
+        }
+
+        const phoneRegex = /^\d{7,15}$/;
+        if (!phoneRegex.test(phone)) {
+            setLoading(false);
+            setError("Please enter a valid phone number (7–15 digits).");
+            return;
+        }
+
+        if (!meetingDate || !meetingTime) {
+            setLoading(false);
+            setError("Please select your preferred meeting date and time.");
+            return;
+        }
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+            if (!res.ok) throw new Error("Failed to submit form");
+
+            setSuccess("Thanks! Your meeting has been scheduled. We'll confirm via email soon.");
+            form.reset();
+        } catch (err) {
+            setError(err.message || "Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    }
     useEffect(() => {
-        if (!isOpen) return
+        if (!isOpen) return;
+
+        // Only run auto-slide if we haven't reached the contact form (last slide)
+        if (currentSlide >= slides.length - 1) return;
 
         const timer = setInterval(() => {
-            setCurrentSlide(prev => (prev + 1) % slides.length)
-        }, 4000)
+            setCurrentSlide((prev) => {
+                // Stop auto-sliding when we reach the 4th slide (index 3)
+                if (prev < slides.length - 1) {
+                    return prev + 1;
+                } else {
+                    clearInterval(timer);
+                    return prev;
+                }
+            });
+        }, 5000);
 
-        return () => clearInterval(timer)
-    }, [isOpen, slides.length])
+        return () => clearInterval(timer);
+    }, [isOpen, currentSlide, slides.length]);
+
+
+
 
     const handleGetStarted = () => {
         router.push('/contactUs')
@@ -92,7 +184,7 @@ export const WelcomePopup= ({ isOpen, onClose }) => {
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.8, opacity: 0, y: 50 }}
                     transition={{ type: "spring", duration: 0.6 }}
-                    className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[96vh] sm:h-auto relative shadow-2xl overflow-hidden"
+                    className="bg-white rounded-2xl sm:rounded-3xl max-w-4xl w-full min-h-[60vh] max-h-[96vh] sm:h-auto relative shadow-2xl overflow-hidden"
                 >
                     <button
                         onClick={onClose}
@@ -215,6 +307,98 @@ export const WelcomePopup= ({ isOpen, onClose }) => {
                                                 Explore Services
                                             </motion.button>
                                         </motion.div>
+                                    )}
+                                    {currentSlideData.contactForm && (
+                                        <form onSubmit={onSubmit} className="grid gap-3 mt-4">
+                                            <div className="grid gap-3 sm:grid-cols-2">
+                                                <input
+                                                    name="name"
+                                                    required
+                                                    placeholder="Full Name *"
+                                                    className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                                />
+                                                <input
+                                                    name="email"
+                                                    type="email"
+                                                    required
+                                                    placeholder="Email *"
+                                                    className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                                />
+                                            </div>
+
+                                            <div className="flex gap-2">
+                                                <select
+                                                    value={selectedCode}
+                                                    onChange={(e) => setSelectedCode(e.target.value)}
+                                                    className="w-1/3 rounded-lg border border-gray-300 px-2 py-2 focus:ring-2 focus:ring-indigo-400 text-sm"
+                                                >
+                                                    {countryCodes.map((c) => (
+                                                        <option key={c.code} value={c.code}>
+                                                            {c.flag} {c.code}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                                <input
+                                                    name="phone"
+                                                    required
+                                                    placeholder="Phone Number"
+                                                    className="w-2/3 rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                                />
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-2">
+                                                <input
+                                                    name="meetingDate"
+                                                    type="date"
+                                                    required
+                                                    min={new Date().toISOString().split("T")[0]}
+                                                    className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                                />
+                                                <input
+                                                    name="meetingTime"
+                                                    type="time"
+                                                    required
+                                                    className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                                />
+                                            </div>
+
+                                            <textarea
+                                                name="message"
+                                                required
+                                                rows={3}
+                                                placeholder="Tell us about your project..."
+                                                className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                            ></textarea>
+
+                                            <select
+                                                name="budget"
+                                                className="rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400"
+                                            >
+                                                 <option value="1k-5k">$1,000 - $5,000</option>
+                  <option value="5k-10k">$5,000 - $10,000</option>
+                  <option value="10k-15k">$10,000 - $15,000</option>
+                  <option value="15k+">$15,000+ </option>
+                                            </select>
+
+                                            {error && (
+                                                <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                                                    {error}
+                                                </p>
+                                            )}
+                                            {success && (
+                                                <p className="text-sm text-green-700 bg-green-50 border border-green-200 rounded-lg px-3 py-2">
+                                                    {success}
+                                                </p>
+                                            )}
+
+                                            <button
+                                                type="submit"
+                                                disabled={loading}
+                                                className="mt-2 w-full rounded-xl bg-gradient-to-r from-cyan-600 to-white-60 px-6 py-3 text-sm font-semibold text-white shadow hover:opacity-95 disabled:opacity-60"
+                                            >
+                                                {loading ? "Submitting..." : "Schedule Meeting"}
+                                            </button>
+                                        </form>
                                     )}
                                 </motion.div>
                             </AnimatePresence>

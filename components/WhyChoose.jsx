@@ -12,7 +12,7 @@ const WhyChoose=()=> {
       <h2 className="text-5xl font-bold mb-6">
         Why Choose{" "}
         <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">
-          A land of AI butterflies
+         Parwanix
         </span>
       </h2>
 
@@ -44,7 +44,7 @@ const WhyChoose=()=> {
 
       {/* Button */}
       <Link
-        href="/contact"
+        href="/contactUs"
         className="mt-8 px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-md hover:shadow-lg transition"
       >
         Start Your Project Today 
