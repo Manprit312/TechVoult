@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
           {
             title: "3. Data Security",
             content:
-              "Panwanix employs advanced encryption, firewalls, and strict access controls to protect your data. All information is processed in compliance with global privacy standards.",
+              "Parwanix employs advanced encryption, firewalls, and strict access controls to protect your data. All information is processed in compliance with global privacy standards.",
           },
           {
             title: "4. Cookies & Tracking",
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           {
             title: "8. Contact Us",
             content:
-              "For privacy inquiries, please reach out to us at privacy@panwanix.com or visit our head office in Mohali, India.",
+              "For privacy inquiries, please reach out to us at privacy@Parwanix.com or visit our head office in Mohali, India.",
           },
         ].map((section, i) => (
           <motion.div
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
         whileInView="show"
         className="text-center mt-16 text-gray-200 text-sm"
       >
-        © {new Date().getFullYear()} Panwanix  All rights reserved.
+        © {new Date().getFullYear()} Parwanix  All rights reserved.
       </motion.p>
     </main>
   );
