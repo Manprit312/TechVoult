@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-lg">
-          Learn how <span className="font-semibold text-white">Parwanix</span> protects, stores, and uses your information to deliver trusted IT solutions and services.
+          Learn how <span className="font-semibold text-white">Kabultechs</span> protects, stores, and uses your information to deliver trusted IT solutions and services.
         </p>
       </motion.div>
 
@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
           {
             title: "3. Data Security",
             content:
-              "Parwanix employs advanced encryption, firewalls, and strict access controls to protect your data. All information is processed in compliance with global privacy standards.",
+              "Kabultechs employs advanced encryption, firewalls, and strict access controls to protect your data. All information is processed in compliance with global privacy standards.",
           },
           {
             title: "4. Cookies & Tracking",
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           {
             title: "8. Contact Us",
             content:
-              "For privacy inquiries, please reach out to us at privacy@Parwanix.com or visit our head office in Mohali, India.",
+              "For privacy inquiries, please reach out to us at privacy@Kabultechs.com or visit our head office in Mohali, India.",
           },
         ].map((section, i) => (
           <motion.div
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
         whileInView="show"
         className="text-center mt-16 text-gray-200 text-sm"
       >
-        © {new Date().getFullYear()} Parwanix  All rights reserved.
+        © {new Date().getFullYear()} Kabultechs  All rights reserved.
       </motion.p>
     </main>
   );

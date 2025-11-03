@@ -8,7 +8,7 @@ import {
   Star,
   CheckCircle,
 } from "lucide-react";
-import FAQAccordion from "../../components/Faq";
+import FAQAccordion from "@/components/Faq";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

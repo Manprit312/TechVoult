@@ -8,7 +8,7 @@ export const metadata = {
   title: "A land of AI butterflies - Digital Solutions",
   description: "Next-Level Digital Solutions for your business growth",
   manifest: "/manifest.json",
- 
+  themeColor: "#000000",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -19,7 +19,9 @@ export const metadata = {
   },
 };
 
-
+export const viewport = {
+  themeColor: "#000000",
+};
 
 export default function RootLayout({ children }) {
 

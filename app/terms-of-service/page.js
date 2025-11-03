@@ -28,7 +28,7 @@ export default function TermsAndServicesPage() {
           Terms & Services
         </h1>
         <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-lg">
-          Welcome to <span className="font-semibold text-white">Parwanix</span>.  
+          Welcome to <span className="font-semibold text-white">Kabultechs</span>.  
           By using our IT solutions and services, you agree to the following terms and conditions.
         </p>
       </motion.div>
@@ -39,17 +39,17 @@ export default function TermsAndServicesPage() {
           {
             title: "1. Acceptance of Terms",
             content:
-              "By accessing or using Parwanix services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree, please discontinue use of our services immediately.",
+              "By accessing or using Kabultechs services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree, please discontinue use of our services immediately.",
           },
           {
             title: "2. Scope of Services",
             content:
-              "Parwanix provides IT consulting, web development, app design, and other technology solutions. The scope of services is defined in client proposals, agreements, or statements of work. Customizations may be made upon mutual consent.",
+              "Kabultechs provides IT consulting, web development, app design, and other technology solutions. The scope of services is defined in client proposals, agreements, or statements of work. Customizations may be made upon mutual consent.",
           },
           {
             title: "3. Client Responsibilities",
             content:
-              "Clients must provide accurate information, required materials, and timely feedback to ensure project success. Parwanix is not liable for delays caused by incomplete or late submissions from clients.",
+              "Clients must provide accurate information, required materials, and timely feedback to ensure project success. Kabultechs is not liable for delays caused by incomplete or late submissions from clients.",
           },
           {
             title: "4. Payments & Billing",
@@ -59,7 +59,7 @@ export default function TermsAndServicesPage() {
           {
             title: "5. Intellectual Property",
             content:
-              "All source code, designs, and deliverables remain the intellectual property of Parwanix until full payment is received. After payment, ownership rights are transferred to the client unless otherwise agreed.",
+              "All source code, designs, and deliverables remain the intellectual property of Kabultechs until full payment is received. After payment, ownership rights are transferred to the client unless otherwise agreed.",
           },
           {
             title: "6. Confidentiality",
@@ -69,22 +69,22 @@ export default function TermsAndServicesPage() {
           {
             title: "7. Limitation of Liability",
             content:
-              "Parwanix shall not be held liable for any indirect, incidental, or consequential damages resulting from the use or inability to use our services. All services are provided 'as is' without any warranty beyond the agreed scope.",
+              "Kabultechs shall not be held liable for any indirect, incidental, or consequential damages resulting from the use or inability to use our services. All services are provided 'as is' without any warranty beyond the agreed scope.",
           },
           {
             title: "8. Termination",
             content:
-              "Either party may terminate an agreement with written notice. Parwanix reserves the right to terminate services if the client breaches these Terms or engages in unlawful or unethical activities.",
+              "Either party may terminate an agreement with written notice. Kabultechs reserves the right to terminate services if the client breaches these Terms or engages in unlawful or unethical activities.",
           },
           {
             title: "9. Modifications to Terms",
             content:
-              "Parwanix reserves the right to modify or update these Terms at any time. Continued use of our services constitutes acceptance of the revised Terms.",
+              "Kabultechs reserves the right to modify or update these Terms at any time. Continued use of our services constitutes acceptance of the revised Terms.",
           },
           {
             title: "10. Contact Information",
             content:
-              "For questions regarding these Terms or our services, please reach out at support@Parwanix.com or visit our office in Mohali, India.",
+              "For questions regarding these Terms or our services, please reach out at support@Kabultechs.com or visit our office in Mohali, India.",
           },
         ].map((section, i) => (
           <motion.div
@@ -118,7 +118,7 @@ export default function TermsAndServicesPage() {
         whileInView="show"
         className="text-center mt-16 text-gray-200 text-sm"
       >
-        © {new Date().getFullYear()} Parwanix IT Services. All rights reserved.
+        © {new Date().getFullYear()} Kabultechs IT Services. All rights reserved.
       </motion.p>
     </main>
   );

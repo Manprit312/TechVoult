@@ -13,7 +13,7 @@ import {
   MonitorSmartphone,
 } from "lucide-react";
 import Image from "next/image";
-import FAQAccordion from "../../components/Faq";
+import FAQAccordion from "@/components/Faq";
 
 /* ---------------- Counter ---------------- */
 function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {

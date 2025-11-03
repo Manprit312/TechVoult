@@ -31,7 +31,7 @@ export const WelcomePopup = ({ isOpen, onClose }) => {
 
     const slides = [
         {
-            title: "Welcome to Parwanix 🚀",
+            title: "Welcome to Kabultechs 🚀",
             subtitle: "Transform Your Ideas Into Reality",
             description:
                 "We're a premium software development company specializing in cutting-edge digital solutions.",

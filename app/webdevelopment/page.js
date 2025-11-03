@@ -19,7 +19,7 @@ export default function WebDevelopmentPage() {
               Top Web Development Company
             </h1>
             <p className="mt-4 text-lg opacity-90">
-             At Parwanix, we craft high-performance websites that align with your business goals, deliver seamless user experiences, and scale with your success.
+             At Kabultechs, we craft high-performance websites that align with your business goals, deliver seamless user experiences, and scale with your success.
             </p>
             <div className="mt-6">
               <Link
@@ -64,7 +64,7 @@ export default function WebDevelopmentPage() {
       Build Websites That Drive Growth
             </h2>
             <p className="mt-4 text-gray-600 leading-relaxed">
-             At Parwanix, we craft high-performance websites tailored to your business goals, combining cutting-edge technology with seamless user experiences. From startups to enterprises, we deliver fast, secure, and scalable digital solutions that convert visitors into customers.
+             At Kabultechs, we craft high-performance websites tailored to your business goals, combining cutting-edge technology with seamless user experiences. From startups to enterprises, we deliver fast, secure, and scalable digital solutions that convert visitors into customers.
             </p>
             <div className="mt-8 flex gap-12">
               <div>
@@ -203,7 +203,7 @@ export default function WebDevelopmentPage() {
               {
                 name: "David Smith",
                 feedback:
-                  "Parwanix  built our ecommerce store with excellent quality. Smooth process and on-time delivery!",
+                  "Kabultechs  built our ecommerce store with excellent quality. Smooth process and on-time delivery!",
               },
               {
                 name: "Sophia Johnson",

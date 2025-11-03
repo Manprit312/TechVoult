@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 import ChatBot from "../components/ChatBot";
 
-export const metadata = {
+export const Kabultechs = {
   title: "A land of AI butterflies - Digital Solutions",
   description: "Next-Level Digital Solutions for your business growth",
   manifest: "/manifest.json",
@@ -19,7 +19,9 @@ export const metadata = {
   },
 };
 
-
+export const viewport = {
+  themeColor: "#000000",
+};
 
 export default function RootLayout({ children }) {
 

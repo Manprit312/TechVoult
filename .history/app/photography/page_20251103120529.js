@@ -1,5 +1,5 @@
 "use client";
-import ServicePage from ".././../components/ServicePage";
+import ServicePage from "../../components/ServicePages";
 export default function PhotographyPage() {
   return (
     <ServicePage

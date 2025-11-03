@@ -16,7 +16,7 @@ export default function AboutPage() {
           className="relative z-10"
         >
           <h1 className="text-5xl font-extrabold text-gray-900">
-About Us – Parwanix</h1>
+About Us – Kabultechs</h1>
           <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-700">
             Empowering innovation through AI, Blockchain, and Digital Transformation —
             building tomorrow’s technology, today.
@@ -63,7 +63,7 @@ About Us – Parwanix</h1>
               <Lightbulb className="h-7 w-7 text-pink-500" /> Our Vision
             </h2>
             <p className="text-gray-600 leading-relaxed">
-             At Parwanix, we envision a future where technology bridges creativity and connection — where intelligent systems simplify life and amplify human potential. We strive to be a global leader in tech innovation, recognized for our creativity, cutting-edge solutions, and unwavering commitment to a human-first approach.
+             At Kabultechs, we envision a future where technology bridges creativity and connection — where intelligent systems simplify life and amplify human potential. We strive to be a global leader in tech innovation, recognized for our creativity, cutting-edge solutions, and unwavering commitment to a human-first approach.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Our goal is to be a global leader recognized for our creativity,
@@ -87,7 +87,7 @@ About Us – Parwanix</h1>
             </h2>
             <p className="text-gray-600 leading-relaxed">
            Pioneering the Future of Intelligent Technology
-At Parwanix, we lead the convergence of AI, AR/VR, Blockchain, and digital innovation to create solutions that redefine what’s possible. We design smart, scalable, and sustainable systems that empower businesses to unlock creativity, streamline operations, and drive transformative outcomes.
+At Kabultechs, we lead the convergence of AI, AR/VR, Blockchain, and digital innovation to create solutions that redefine what’s possible. We design smart, scalable, and sustainable systems that empower businesses to unlock creativity, streamline operations, and drive transformative outcomes.
 
 By challenging the status quo and redefining technological boundaries, we forge a connected world where intelligence, integrity, and impact converge to amplify human potential and societal progress.
 
@@ -200,7 +200,7 @@ Join us in shaping a future where technology serves humanity.
             Let’s Build the Future Together 🚀
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We’re a team of thinkers, creators, and innovators. Partner with Parwanix
+            We’re a team of thinkers, creators, and innovators. Partner with Kabultechs
             Store to turn your ideas into powerful digital products.
           </p>
           <Link

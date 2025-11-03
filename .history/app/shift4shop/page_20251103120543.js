@@ -10,10 +10,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import FAQAccordion from "../../components/Faq";
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+
 /* ---------------- Counter ---------------- */
 function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
   const [value, setValue] = useState(0);

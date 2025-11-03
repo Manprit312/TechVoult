@@ -72,7 +72,7 @@ export default function MachineLearningPage() {
               Top Machine Learning Development Company
             </h1>
             <p className="mt-4 text-gray-600">
-              Build intelligent ML-powered products with Parwanix Corp. Our machine
+              Build intelligent ML-powered products with Kabultechs Corp. Our machine
               learning solutions help automate workflows, gain insights, and
               deliver personalized experiences.
             </p>
@@ -115,11 +115,11 @@ export default function MachineLearningPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE Parwanix */}
+      {/* WHY CHOOSE Kabultechs */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <motion.h2 {...fadeUp()} className="text-3xl font-bold">
-            Why Choose Parwanix Corp As Your Machine Learning Development Partner?
+            Why Choose Kabultechs Corp As Your Machine Learning Development Partner?
           </motion.h2>
           <p className="mt-4 text-gray-600">
             We help you accelerate adoption of AI & ML with expert teams,

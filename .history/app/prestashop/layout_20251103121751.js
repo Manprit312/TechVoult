@@ -1,8 +1,8 @@
-import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FloatingCTA from "../components/FloatingCTA";
-import ChatBot from "../components/ChatBot";
+import "../../app/globals.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import FloatingCTA from "../../components/FloatingCTA";
+import ChatBot from "../../components/ChatBot";
 
 export const metadata = {
   title: "A land of AI butterflies - Digital Solutions",
@@ -19,7 +19,9 @@ export const metadata = {
   },
 };
 
-
+export const viewport = {
+  themeColor: "#000000",
+};
 
 export default function RootLayout({ children }) {
 

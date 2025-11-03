@@ -181,7 +181,7 @@ Expert Magento Development Services
             </h1>
             <p className="mt-4 text-gray-700">
 
-At Parwanix, we specialize in crafting custom Magento stores for businesses that demand advanced functionality, multi-store management, and seamless scalability. Our Magento developers design robust, secure, and high-performance platforms tailored to complex e-commerce needs.
+At Kabultechs, we specialize in crafting custom Magento stores for businesses that demand advanced functionality, multi-store management, and seamless scalability. Our Magento developers design robust, secure, and high-performance platforms tailored to complex e-commerce needs.
             </p>
             <motion.div
               className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg"
@@ -242,7 +242,7 @@ At Parwanix, we specialize in crafting custom Magento stores for businesses that
             width={600} height={400} className="w-full h-full object-cover" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-gray-900"> Why Choose Parwanix for Magento?</h3>
+          <h3 className="text-2xl font-bold text-gray-900"> Why Choose Kabultechs for Magento?</h3>
           <p className="mt-4 text-gray-700">
            
 

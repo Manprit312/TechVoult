@@ -121,7 +121,7 @@ export default function ContactPage() {
 
             <div className="mt-6 space-y-2 text-gray-700 text-sm">
               <p className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-indigo-500" /> info@parwanix.com
+                <Mail className="h-5 w-5 text-indigo-500" /> info@Kabultechs.com
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-indigo-500" /> +1 (510) 630-6507
@@ -212,12 +212,10 @@ export default function ContactPage() {
               <div className="space-y-1">
                 <label className="text-sm font-medium text-gray-700" htmlFor="budget">Budget Range</label>
                 <select id="budget" name="budget" className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-400">
-                  <option value="1k-5k">$1,000 - $5,000</option>
-                  <option value="5k-10k">$5,000 - $10,000</option>
-                  <option value="10k-15k">$10,000 - $15,000</option>
-                  <option value="15k-20k">$15,000 - $20,000</option>
-                  <option value="25k-50k">$25,000 - $50,000</option>
-                  <option value=">50k">$50,000+</option>
+                <option value="1k-5k">$1,000 - $5,000</option>
+                <option value="5k-10k">$5,000 - $10,000</option>
+                <option value="10k-15k">$10,000 - $15,000</option>
+                <option value="15k+">$15,000+ </option>
                 </select>
               </div>
             </div>

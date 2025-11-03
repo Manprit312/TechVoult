@@ -91,7 +91,7 @@ export default function ShopifyPage() {
             <p className="mt-4 text-gray-700">
 Build Scalable, Secure, and Feature-Rich Shopify Stores to Drive Sales and Growth
 
-At Parwanix, we specialize in crafting custom Shopify stores that combine aesthetics, functionality, and performance to take your business online and maximize conversions. From custom themes to seamless payment integrations, we design stores that scale with your business, protect your data, and drive conversions.
+At Kabultechs, we specialize in crafting custom Shopify stores that combine aesthetics, functionality, and performance to take your business online and maximize conversions. From custom themes to seamless payment integrations, we design stores that scale with your business, protect your data, and drive conversions.
             </p>
             <div className="mt-6 h-52 rounded-xl overflow-hidden shadow-lg">
               <Image src="/assets/images/shopify.jpeg" alt="Shopify Development"

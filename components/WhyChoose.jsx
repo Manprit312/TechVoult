@@ -12,7 +12,7 @@ const WhyChoose=()=> {
       <h2 className="text-5xl font-bold mb-6">
         Why Choose{" "}
         <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">
-         Parwanix
+         Kabultechs
         </span>
       </h2>
 

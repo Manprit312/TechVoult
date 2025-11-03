@@ -19,7 +19,7 @@ export default function Footer() {
             />
             <div className="flex flex-col leading-tight">
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Parwanix
+                Kabultechs
               </span>
               <span className="text-sm text-gray-500">
                 Land of AI Butterflies
@@ -85,7 +85,7 @@ export default function Footer() {
 
       {/* Bottom */}
     <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-  © 2025 All rights reserved | Parwanix | Developed by{" "}
+  © 2025 All rights reserved | Kabultechs | Developed by{" "}
   <Link
     href="https://www.bharatai.store/"
     className="hover:text-white font-medium transition-colors"
