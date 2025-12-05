@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const dataDir = path.join(process.cwd(), 'data');
+// Use /tmp on Vercel (writable), or ./data locally
+const isVercel = process.env.VERCEL === '1' || process.env.NODE_ENV === 'production';
+const dataDir = isVercel ? '/tmp/data' : path.join(process.cwd(), 'data');
 const inquiriesFile = path.join(dataDir, 'inquiries.json');
 
 // Ensure data directory exists
