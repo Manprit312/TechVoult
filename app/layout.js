@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FloatingCTA from "../components/FloatingCTA";
 import ChatBot from "../components/ChatBot";
+import ConditionalLayout from "./ConditionalLayout";
 
 export const metadata = {
   title: "A land of AI butterflies - Digital Solutions",
@@ -29,15 +30,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="text-gray-900">
-           {/* <PwaFooter /> */}
-
-        <Header />
-  
-        <FloatingCTA />
-        <ChatBot />
-
-        <main>{children}</main>
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
       </body>
     </html>
   );

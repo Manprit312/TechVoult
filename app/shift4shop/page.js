@@ -56,15 +56,34 @@ function Counter({ end = 0, duration = 1500, suffix = "+", className = "" }) {
 export default function Shift4ShopPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setStatus("Submitting...");
-    setTimeout(() => {
-      setStatus("Submitted ✅");
-      setForm({ name: "", email: "", message: "" });
-    }, 1000);
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+      
+      if (res.ok && data.success) {
+        setStatus("Submitted ✅");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Error: " + (data.error || "Failed to submit"));
+      }
+    } catch (error) {
+      setStatus("Error: Failed to submit. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const portfolioSlides = [
@@ -128,12 +147,12 @@ export default function Shift4ShopPage() {
               className="w-full p-3 border rounded-lg" required />
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your requirements *"
               rows={4} className="w-full p-3 border rounded-lg" required></textarea>
-            <motion.button type="submit"
-              className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-95"
+            <motion.button type="submit" disabled={loading}
+              className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-95 disabled:opacity-50"
               whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </motion.button>
-            {status && <p className="text-sm text-green-700">{status}</p>}
+            {status && <p className={`text-sm ${status.includes("Error") ? "text-red-700" : "text-green-700"}`}>{status}</p>}
           </motion.form>
         </div>
       </motion.section>
@@ -256,10 +275,10 @@ export default function Shift4ShopPage() {
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name *" className="p-3 border rounded-lg"/>
             <input name="email" value={form.email} onChange={handleChange} placeholder="Email *" className="p-3 border rounded-lg"/>
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Your Requirements *" className="md:col-span-2 p-3 border rounded-lg h-32"></textarea>
-            <button type="submit" className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-90">
-              Submit
+            <button type="submit" disabled={loading} className="md:col-span-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:opacity-90 disabled:opacity-50">
+              {loading ? "Submitting..." : "Submit"}
             </button>
-            {status && <p className="text-green-600 text-sm">{status}</p>}
+            {status && <p className={`text-sm ${status.includes("Error") ? "text-red-600" : "text-green-600"}`}>{status}</p>}
           </form>
         </div>
       </section>
